@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import type { Storyboard } from '../core/types';
 import { formatPosition } from '../playback/positionLabel';
+import { NextIcon, PauseIcon, PlayIcon, PrevIcon } from './icons';
 import { SceneView } from './SceneView';
+import { TEMPLATE_LABELS } from './templateLabels';
 
 const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
 
@@ -59,6 +61,7 @@ export interface PlayerProps {
 /**
  * Presentational player: renders the current Scene and the playback controls
  * (Req 5.1, 5.2, 5.3, 5.5 to 5.8, 5.11 to 5.13). Timing lives in usePlayback.
+ * Play and Pause share one toggle button whose name follows the state.
  */
 export function Player({
   storyboard,
@@ -80,46 +83,61 @@ export function Player({
 
   return (
     <section className="sb-player" aria-label="Preview">
-      {scene ? (
-        <SceneView scene={scene} reducedMotion={reduced} />
-      ) : (
-        <div className="sb-player__empty" role="status">
-          No scenes yet. Paste a transcript to build a storyboard.
-        </div>
-      )}
+      <div className="sb-player__screen">
+        {scene ? (
+          <>
+            <span className={`sb-player__tag sb-badge sb-badge--${scene.template}`}>
+              {TEMPLATE_LABELS[scene.template]}
+            </span>
+            <SceneView scene={scene} reducedMotion={reduced} />
+          </>
+        ) : (
+          <div className="sb-player__empty" role="status">
+            <strong>Nothing to preview yet</strong>
+            <span>Paste some text in step 1, or load the sample.</span>
+          </div>
+        )}
+      </div>
+
+      <ol className="sb-progress" aria-hidden="true">
+        {storyboard.scenes.map((s) => (
+          <li
+            key={s.index}
+            className={s.index < current ? 'is-done' : s.index === current ? 'is-current' : undefined}
+          />
+        ))}
+      </ol>
 
       <div className="sb-player__controls" role="group" aria-label="Playback controls">
         <button
           type="button"
-          className="sb-player__button"
+          className="sb-icon-button"
+          aria-label="Previous"
+          title="Previous scene"
           onClick={onPrev}
           disabled={isEmpty || current === 0}
         >
-          Previous
+          <PrevIcon />
         </button>
         <button
           type="button"
-          className="sb-player__button"
-          onClick={onPlay}
-          disabled={isEmpty || playing}
+          className="sb-play-button"
+          aria-label={playing ? 'Pause' : 'Play'}
+          title={playing ? 'Pause' : 'Play'}
+          onClick={playing ? onPause : onPlay}
+          disabled={isEmpty}
         >
-          Play
+          {playing ? <PauseIcon /> : <PlayIcon />}
         </button>
         <button
           type="button"
-          className="sb-player__button"
-          onClick={onPause}
-          disabled={isEmpty || !playing}
-        >
-          Pause
-        </button>
-        <button
-          type="button"
-          className="sb-player__button"
+          className="sb-icon-button"
+          aria-label="Next"
+          title="Next scene"
           onClick={onNext}
           disabled={isEmpty || current === total - 1}
         >
-          Next
+          <NextIcon />
         </button>
         <span className="sb-player__position" aria-live="polite">
           {isEmpty ? '0 / 0' : formatPosition(current, total)}

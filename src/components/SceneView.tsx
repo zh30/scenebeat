@@ -56,13 +56,6 @@ function renderLayout(scene: Scene): ReactNode {
       return (
         <>
           <p className="sb-keyword-highlight__text">{highlightKeywords(scene.text, keywords ?? [])}</p>
-          <ul className="sb-keyword-highlight__chips">
-            {(keywords ?? []).map((k, i) => (
-              <li key={i} className="sb-chip">
-                {k}
-              </li>
-            ))}
-          </ul>
         </>
       );
     }

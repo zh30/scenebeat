@@ -3,6 +3,7 @@ import { formatExportFilename } from '../core/exportFilename';
 import { parseStoryboard, serializeStoryboard } from '../core/serialize';
 import type { Storyboard, ValidationError } from '../core/types';
 import { validateStoryboard } from '../core/validate';
+import { DownloadIcon } from './icons';
 
 export interface ExportButtonProps {
   storyboard: Storyboard;
@@ -56,20 +57,29 @@ export function ExportButton({
     <div className="sb-export">
       <button
         type="button"
-        className="sb-button sb-button--primary"
+        className="sb-button sb-button--primary sb-button--large"
         onClick={handleExport}
         disabled={disabled}
       >
-        Export JSON
+        <DownloadIcon />
+        Download storyboard
       </button>
+      <p className="sb-export__hint">
+        {disabled
+          ? 'Add some text first. There is nothing to download yet.'
+          : 'Saves a .json file with every scene, its template and its timing.'}
+      </p>
       {errors.length > 0 && (
-        <ul className="sb-export__errors" role="alert" aria-label="Export validation errors">
-          {errors.map((error, i) => (
-            <li key={`${error.path}-${i}`} className="sb-export__error">
-              <span className="sb-export__error-path">{error.path}</span>: {error.message}
-            </li>
-          ))}
-        </ul>
+        <div className="sb-export__problem" role="alert" aria-label="Export validation errors">
+          <p className="sb-export__problem-title">The file was not saved because the storyboard has problems:</p>
+          <ul className="sb-export__errors">
+            {errors.map((error, i) => (
+              <li key={`${error.path}-${i}`} className="sb-export__error">
+                <span className="sb-export__error-path">{error.path}</span>: {error.message}
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </div>
   );
