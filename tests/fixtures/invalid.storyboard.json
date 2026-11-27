@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "createdAt": "2026-10-31T12:00:00.000Z",
+  "sceneCount": 3,
+  "scenes": [
+    {
+      "index": 0,
+      "text": "Revenue grew 45% last quarter.",
+      "template": "big-number",
+      "durationMs": 1500,
+      "data": {
+        "value": "45%"
+      }
+    },
+    {
+      "index": 2,
+      "text": "首先，我们在2025年发布了产品。",
+      "template": "slideshow",
+      "durationMs": 3450,
+      "data": {
+        "label": "首先"
+      }
+    }
+  ]
+}

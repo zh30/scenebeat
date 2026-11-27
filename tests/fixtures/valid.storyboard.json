@@ -1,0 +1,56 @@
+{
+  "version": "1.0",
+  "createdAt": "2026-10-31T12:00:00.000Z",
+  "sceneCount": 5,
+  "scenes": [
+    {
+      "index": 0,
+      "text": "Revenue grew 45% last quarter.",
+      "template": "big-number",
+      "durationMs": 2250,
+      "data": {
+        "value": "45%"
+      }
+    },
+    {
+      "index": 1,
+      "text": "She said \"we are just getting started.\"",
+      "template": "quote",
+      "durationMs": 2750,
+      "data": {
+        "quote": "we are just getting started."
+      }
+    },
+    {
+      "index": 2,
+      "text": "首先，我们在2025年发布了产品。",
+      "template": "timeline",
+      "durationMs": 3450,
+      "data": {
+        "label": "首先"
+      }
+    },
+    {
+      "index": 3,
+      "text": "用户数量增长了3倍！",
+      "template": "big-number",
+      "durationMs": 2850,
+      "data": {
+        "value": "3倍"
+      }
+    },
+    {
+      "index": 4,
+      "text": "Great storytelling keeps audiences engaged",
+      "template": "keyword-highlight",
+      "durationMs": 2250,
+      "data": {
+        "keywords": [
+          "storytelling",
+          "audiences",
+          "engaged"
+        ]
+      }
+    }
+  ]
+}

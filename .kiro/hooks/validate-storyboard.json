@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Validate storyboard JSON",
+      "description": "Runs the SceneBeat storyboard validator on saved *.storyboard.json and scenebeat-storyboard-*.json files. The CLI reads the saved file path from the hook's stdin JSON, prints one 'path: message' line per error, and exits 1 on errors or malformed JSON.",
+      "trigger": "PostFileSave",
+      "matcher": "(\\.storyboard\\.json|scenebeat-storyboard-[^/]*\\.json)$",
+      "action": {
+        "type": "command",
+        "command": "pnpm exec tsx scripts/validate-storyboard.ts"
+      },
+      "timeout": 60
+    }
+  ]
+}
