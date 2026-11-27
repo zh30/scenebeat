@@ -1,7 +1,8 @@
 import { describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import { StoryboardList } from '../src/components/StoryboardList';
-import type { Scene, Storyboard } from '../src/core/types';
+import type { Scene, SceneTemplate, Storyboard } from '../src/core/types';
+import { TEMPLATE_LABELS } from '../src/components/templateLabels';
 
 const scenes: Scene[] = [
   { index: 0, text: 'Revenue grew 45% last year.', template: 'big-number', durationMs: 2500, data: { value: '45%' } },
@@ -31,7 +32,7 @@ describe('StoryboardList', () => {
       const content = row.textContent ?? '';
       expect(within(row).getByText(String(i + 1))).toBeTruthy();
       expect(within(row).getByText(scenes[i].text)).toBeTruthy();
-      expect(within(row).getByText(scenes[i].template)).toBeTruthy();
+      expect(within(row).getByText(TEMPLATE_LABELS[scenes[i].template])).toBeTruthy();
       expect(content.indexOf(String(i + 1))).toBeLessThan(content.indexOf(scenes[i].text));
     });
   });
@@ -56,7 +57,7 @@ describe('StoryboardList', () => {
     const expected = { 'big-number': 2, 'keyword-highlight': 1, quote: 1, timeline: 1 };
     for (const [template, count] of Object.entries(expected)) {
       const item = screen.getByTestId(`storyboard-count-${template}`);
-      expect(item.textContent).toContain(template);
+      expect(item.textContent).toContain(TEMPLATE_LABELS[template as SceneTemplate]);
       expect(within(item).getByText(String(count))).toBeTruthy();
     }
   });

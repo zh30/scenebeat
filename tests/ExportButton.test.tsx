@@ -60,7 +60,7 @@ afterEach(() => {
 });
 
 function exportButton(): HTMLButtonElement {
-  return screen.getByRole('button', { name: 'Export JSON' }) as HTMLButtonElement;
+  return screen.getByRole('button', { name: 'Download storyboard' }) as HTMLButtonElement;
 }
 
 describe('ExportButton', () => {
@@ -116,9 +116,9 @@ describe('ExportButton', () => {
     expect(clickSpy).not.toHaveBeenCalled();
 
     const alert = screen.getByRole('alert');
-    expect(alert.tagName).toBe('UL');
-    expect(alert.classList.contains('sb-export__errors')).toBe(true);
-    const items = alert.querySelectorAll('li');
+    const list = alert.querySelector('ul.sb-export__errors');
+    expect(list).not.toBeNull();
+    const items = list!.querySelectorAll('li');
     expect(items).toHaveLength(2);
     expect(items[0].textContent).toBe(
       '$.sceneCount: sceneCount 4 does not match scenes length 3',

@@ -124,13 +124,16 @@ describe('Player controls (Req 5.5 to 5.8, 5.13)', () => {
     expect(button('Next').disabled).toBe(false);
   });
 
-  it('enables Play when paused and Pause when playing', () => {
+  it('shows one Play/Pause toggle whose name and action follow the playing state', () => {
     const { props, rerender } = renderPlayer({ playing: false });
     expect(button('Play').disabled).toBe(false);
-    expect(button('Pause').disabled).toBe(true);
+    expect(screen.queryByRole('button', { name: 'Pause' })).toBeNull();
     rerender(<Player {...props} playing />);
-    expect(button('Play').disabled).toBe(true);
+    expect(screen.queryByRole('button', { name: 'Play' })).toBeNull();
     expect(button('Pause').disabled).toBe(false);
+    fireEvent.click(button('Pause'));
+    expect(props.onPause).toHaveBeenCalledTimes(1);
+    expect(props.onPlay).not.toHaveBeenCalled();
   });
 
   it('shows the current position as "current / total"', () => {
@@ -149,13 +152,15 @@ describe('Player controls (Req 5.5 to 5.8, 5.13)', () => {
 });
 
 describe('Player empty state (Req 5.12)', () => {
-  it('shows an empty-state message and disables all four controls', () => {
-    const { container } = renderPlayer({ storyboard: emptyStoryboard });
+  it('shows an empty-state message and disables every control', () => {
+    const { container, props, rerender } = renderPlayer({ storyboard: emptyStoryboard });
     expect(container.querySelector('.sb-player__empty')?.textContent).toMatch(/\S/);
     expect(screen.queryByTestId('scene-view')).toBeNull();
-    for (const name of ['Play', 'Pause', 'Previous', 'Next']) {
+    for (const name of ['Play', 'Previous', 'Next']) {
       expect(button(name).disabled).toBe(true);
     }
+    rerender(<Player {...props} playing />);
+    expect(button('Pause').disabled).toBe(true);
   });
 
   it('keeps Play disabled when empty even if playing is false', () => {

@@ -106,12 +106,13 @@ describe('App playback reset on regeneration (Req 5.14)', () => {
     fireEvent.click(button('Next'));
     fireEvent.click(button('Play'));
     expect(button('Pause').disabled).toBe(false);
+    expect(screen.queryByRole('button', { name: 'Play' })).toBeNull();
 
     typeText('Alpha. Beta.');
     advance(REGENERATE_DEBOUNCE_MS);
     expect(position(container)).toBe('1 / 2');
     expect(button('Play').disabled).toBe(false);
-    expect(button('Pause').disabled).toBe(true);
+    expect(screen.queryByRole('button', { name: 'Pause' })).toBeNull();
 
     // No further advance happens once stopped.
     advance(10_000);
