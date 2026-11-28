@@ -25,7 +25,9 @@ export type PlaybackAction =
   | { type: 'tick'; elapsedMs: number }
   | { type: 'next' }
   | { type: 'prev' }
-  | { type: 'select'; index: number };
+  | { type: 'select'; index: number }
+  /** Replaces the durations after an edit: pauses and keeps the position (Requirement 7.2, 7.3). */
+  | { type: 'retime'; durations: readonly number[] };
 
 /** Builds the state for a freshly (re)generated storyboard: first scene, paused. */
 export function createPlaybackState(durations: readonly number[]): PlaybackState {
@@ -82,6 +84,19 @@ export function playbackReducer(state: PlaybackState, action: PlaybackAction): P
       const { index } = action;
       if (!Number.isInteger(index) || index < 0 || index >= state.total) return state;
       return goTo(state, index);
+    }
+
+    case 'retime': {
+      const durations = [...action.durations];
+      const total = durations.length;
+      const index = Math.min(state.index, Math.max(0, total - 1));
+      return {
+        index,
+        playing: false,
+        remainingMs: durations[index] ?? 0,
+        total,
+        durations,
+      };
     }
 
     default: {

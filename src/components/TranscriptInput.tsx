@@ -5,9 +5,17 @@ export interface TranscriptInputProps {
   onChange: (value: string) => void;
   onLoadSample: () => void;
   onClear: () => void;
+  /** Disables the textarea, "Load sample", and "Clear" (e.g. while a video renders). */
+  disabled?: boolean;
 }
 
-export function TranscriptInput({ value, onChange, onLoadSample, onClear }: TranscriptInputProps) {
+export function TranscriptInput({
+  value,
+  onChange,
+  onLoadSample,
+  onClear,
+  disabled = false,
+}: TranscriptInputProps) {
   const textareaId = useId();
   const hintId = useId();
 
@@ -27,6 +35,7 @@ export function TranscriptInput({ value, onChange, onLoadSample, onClear }: Tran
         onChange={handleChange}
         aria-describedby={hintId}
         spellCheck={false}
+        disabled={disabled}
         placeholder="Paste your podcast or video transcript here. Chinese and English both work."
       />
       <div className="sb-transcript__footer">
@@ -34,10 +43,20 @@ export function TranscriptInput({ value, onChange, onLoadSample, onClear }: Tran
           Each sentence becomes one scene. The preview updates as you type.
         </p>
         <div className="sb-transcript__actions">
-          <button type="button" className="sb-button sb-button--ghost" onClick={onClear} disabled={value.length === 0}>
+          <button
+            type="button"
+            className="sb-button sb-button--ghost"
+            onClick={onClear}
+            disabled={disabled || value.length === 0}
+          >
             Clear
           </button>
-          <button type="button" className="sb-button sb-button--soft" onClick={onLoadSample}>
+          <button
+            type="button"
+            className="sb-button sb-button--soft"
+            onClick={onLoadSample}
+            disabled={disabled}
+          >
             Load sample
           </button>
         </div>

@@ -105,3 +105,74 @@ describe('validateStoryboard', () => {
     expect(validateStoryboard(sb)).toEqual([]);
   });
 });
+
+function validStoryboard11(): Record<string, unknown> {
+  const sb = validStoryboard();
+  sb.version = '1.1';
+  scenes(sb).forEach((scene, i) => {
+    scene.templateSource = i === 1 ? 'manual' : 'auto';
+  });
+  return sb;
+}
+
+describe('validateStoryboard: version and templateSource (edit-export)', () => {
+  it('accepts a valid version 1.1 storyboard (Req 5.6)', () => {
+    expect(validateStoryboard(validStoryboard11())).toEqual([]);
+  });
+
+  it('reports an unsupported version naming the value and skips templateSource checks (Req 5.5, 5.7)', () => {
+    const sb = validStoryboard11();
+    sb.version = '2.0';
+    delete scenes(sb)[0].templateSource;
+    expect(validateStoryboard(sb)).toEqual([
+      { path: '$.version', message: 'Unsupported version "2.0"; expected "1.0" or "1.1"' },
+    ]);
+  });
+
+  it('reports a missing templateSource on a 1.1 scene (Req 5.8)', () => {
+    const sb = validStoryboard11();
+    delete scenes(sb)[2].templateSource;
+    expect(validateStoryboard(sb)).toEqual([
+      { path: '$.scenes[2].templateSource', message: 'Missing required field "templateSource"' },
+    ]);
+  });
+
+  it('reports an invalid string templateSource on a 1.1 scene (Req 5.8)', () => {
+    const sb = validStoryboard11();
+    scenes(sb)[1].templateSource = 'human';
+    expect(validateStoryboard(sb)).toEqual([
+      {
+        path: '$.scenes[1].templateSource',
+        message: 'Scene 1 has invalid templateSource "human"; expected "auto" or "manual"',
+      },
+    ]);
+  });
+
+  it('reports a non-string templateSource on a 1.1 scene by type (Req 5.8)', () => {
+    const sb = validStoryboard11();
+    scenes(sb)[0].templateSource = null;
+    expect(validateStoryboard(sb)).toEqual([
+      {
+        path: '$.scenes[0].templateSource',
+        message: 'Scene 0 has invalid templateSource null; expected "auto" or "manual"',
+      },
+    ]);
+  });
+
+  it('reports a templateSource on a 1.0 scene (Req 5.9)', () => {
+    const sb = validStoryboard();
+    scenes(sb)[1].templateSource = 'auto';
+    expect(validateStoryboard(sb)).toEqual([
+      { path: '$.scenes[1].templateSource', message: 'Field "templateSource" requires version "1.1"' },
+    ]);
+  });
+
+  it('runs no templateSource checks when version is not a string', () => {
+    const sb = validStoryboard11();
+    sb.version = 11;
+    scenes(sb)[0].templateSource = 'bogus';
+    const errors = validateStoryboard(sb);
+    expect(errors).toHaveLength(1);
+    expect(errors[0].path).toBe('$.version');
+  });
+});

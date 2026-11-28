@@ -1,5 +1,5 @@
 import { execFileSync, spawnSync } from 'node:child_process';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
 const root = resolve(__dirname, '..');
@@ -137,5 +137,63 @@ describe('repository smoke tests', () => {
     expect(isIgnored('dist/index.html')).toBe(true);
     expect(isIgnored('.kiro/steering/product.md')).toBe(false);
     expect(isIgnored('.kiro/hooks/validate-storyboard.json')).toBe(false);
+  });
+});
+
+/** Text of a `## <title>` section, up to the next `## ` heading. */
+function section(text: string, title: string): string {
+  const start = text.indexOf(`## ${title}`);
+  if (start < 0) return '';
+  const rest = text.slice(start + 3 + title.length);
+  const end = rest.search(/^## /m);
+  return end < 0 ? rest : rest.slice(0, end);
+}
+
+function sourceFiles(dir: string): string[] {
+  return readdirSync(join(root, dir), { withFileTypes: true }).flatMap((entry) => {
+    const rel = `${dir}/${entry.name}`;
+    if (entry.isDirectory()) return sourceFiles(rel);
+    return /\.(ts|tsx)$/.test(entry.name) ? [rel] : [];
+  });
+}
+
+describe('edit-export scope (17.1, 17.2, 17.4, 17.5)', () => {
+  const docs: Array<[string, string]> = [
+    ['product.md scope section', section(read('.kiro/steering/product.md'), 'Scope boundaries (MVP)')],
+    ['README.md', read('README.md')],
+  ];
+
+  it.each(docs)('%s brings in-browser video and SRT/WebVTT into scope', (_name, text) => {
+    expect(text).not.toBe('');
+    expect(text).toMatch(/video/i);
+    expect(text).toMatch(/browser/i);
+    expect(text).toContain('SRT');
+    expect(text).toContain('WebVTT');
+    expect(text).toContain('.kiro/specs/scenebeat-edit-export/');
+  });
+
+  it.each(docs)('%s still excludes audio, backend, and native editor formats', (_name, text) => {
+    const outOfScope = /^.*Out of scope.*$/m.exec(text)?.[0] ?? '';
+    expect(outOfScope).toMatch(/audio/i);
+    expect(outOfScope).toMatch(/backend/i);
+    expect(outOfScope).toMatch(/accounts/i);
+    expect(outOfScope).toMatch(/network requests/i);
+    for (const format of ['CapCut', '.prproj', '.drp', 'FCPXML']) {
+      expect(outOfScope).toContain(format);
+    }
+  });
+
+  it('README.md documents the WebM missing-duration limitation (14.6)', () => {
+    const readme = read('README.md');
+    expect(readme).toMatch(/WebM[^\n]*no duration/i);
+  });
+
+  it('src/ makes no network requests (17.1, 17.2)', () => {
+    const files = sourceFiles('src');
+    expect(files.length).toBeGreaterThan(0);
+    const offenders = files.filter((rel) =>
+      /\bfetch\s*\(|XMLHttpRequest|WebSocket|EventSource/.test(read(rel)),
+    );
+    expect(offenders).toEqual([]);
   });
 });

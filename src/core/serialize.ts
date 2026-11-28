@@ -20,7 +20,17 @@ function orderData(data: SceneData): Record<string, unknown> {
   return out;
 }
 
-function orderScene(scene: Scene): Record<string, unknown> {
+function orderScene(scene: Scene, version: string): Record<string, unknown> {
+  if (version === '1.1' && Object.prototype.hasOwnProperty.call(scene, 'templateSource')) {
+    return {
+      index: scene.index,
+      text: scene.text,
+      template: scene.template,
+      templateSource: scene.templateSource,
+      durationMs: scene.durationMs,
+      data: orderData(scene.data),
+    };
+  }
   return {
     index: scene.index,
     text: scene.text,
@@ -33,14 +43,16 @@ function orderScene(scene: Scene): Record<string, unknown> {
 /**
  * Serializes a storyboard to JSON text with a fixed key order
  * (`version`, `createdAt`, `sceneCount`, `scenes`; per scene `index`, `text`,
- * `template`, `durationMs`, `data`) and two-space indentation.
+ * `template`, then `templateSource` for version "1.1" scenes that have it,
+ * `durationMs`, `data`) and two-space indentation. Any other version uses the
+ * MVP scene shape without `templateSource`.
  */
 export function serializeStoryboard(sb: Storyboard): string {
   const ordered = {
     version: sb.version,
     createdAt: sb.createdAt,
     sceneCount: sb.sceneCount,
-    scenes: sb.scenes.map(orderScene),
+    scenes: sb.scenes.map((scene) => orderScene(scene, sb.version)),
   };
   return JSON.stringify(ordered, null, 2);
 }

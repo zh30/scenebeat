@@ -288,9 +288,19 @@ button {
 
 /* ---------- Step 2: player ---------- */
 
+/*
+ * The screen takes the chosen Aspect_Ratio (Req 8.5). The Player sets
+ * --sb-ratio-w / --sb-ratio-h inline; the width is capped so a tall 9:16
+ * screen never exceeds --sb-screen-max-h and stays centred in the card.
+ */
 .sb-player__screen {
+  --sb-ratio-w: 16;
+  --sb-ratio-h: 9;
+  --sb-screen-max-h: min(62vh, 640px);
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: var(--sb-ratio-w) / var(--sb-ratio-h);
+  width: min(100%, calc(var(--sb-screen-max-h) * var(--sb-ratio-w) / var(--sb-ratio-h)));
+  margin-inline: auto;
   overflow: hidden;
   border-radius: var(--sb-radius-sm);
   background:
@@ -411,20 +421,24 @@ button {
 
 /* ---------- Scenes (stage content) ---------- */
 
+/*
+ * The stage is laid out at the ratio's logical pixel size (e.g. 1080x1920) and
+ * scaled to the screen width inline, so every size below is in logical px and
+ * matches the canvas renderer. Position, size, and gap come from the layout.
+ */
 .sb-stage {
-  display: grid;
-  height: 100%;
-  place-items: center;
-  padding: 48px clamp(20px, 6%, 56px);
+  --sb-enter-offset: 48px;
+  overflow: hidden;
+  letter-spacing: normal;
+  pointer-events: none;
 }
 
 .sb-scene {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  max-width: 100%;
   text-align: center;
+  letter-spacing: normal;
   animation-duration: var(--sb-transition-ms, 450ms);
   animation-timing-function: var(--sb-ease);
   animation-fill-mode: both;
@@ -444,7 +458,7 @@ button {
 @keyframes sb-scene-enter {
   from {
     opacity: 0;
-    transform: translateY(18px) scale(0.98);
+    transform: translateY(var(--sb-enter-offset, 48px)) scale(0.98);
   }
   to {
     opacity: 1;
@@ -471,37 +485,57 @@ button {
   .sb-button,
   .sb-icon-button,
   .sb-play-button,
-  .sb-list__row {
+  .sb-list__row,
+  .sb-list__select,
+  .sb-ratio__option,
+  .sb-ratio__shape,
+  .sb-format__option,
+  .sb-editor__field,
+  .sb-editor__select {
     transition: none;
   }
 }
 
+/*
+ * Scene blocks. Font size, weight, line height, colour, and width are set
+ * inline from the Canvas_Layout; margins and gaps are zero so each block's
+ * height equals decorationHeight + lines * lineHeightPx, as in the video.
+ */
+.sb-scene__block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sb-scene__block > :is(p, div, blockquote) {
+  margin: 0;
+  padding: 0;
+}
+
+.sb-scene__block--value,
+.sb-scene__block--label {
+  font-variant-numeric: tabular-nums;
+}
+
 .sb-scene__caption {
   margin: 0;
-  max-width: 44ch;
   color: var(--sb-muted);
-  font-size: clamp(0.875rem, 1.6vw, 1.0625rem);
 }
 
 .sb-big-number__value {
   color: var(--sb-c-big-number);
-  font-size: clamp(3rem, 9vw, 5.5rem);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  font-variant-numeric: tabular-nums;
 }
 
 .sb-keyword-highlight__text {
   margin: 0;
-  max-width: 28ch;
-  font-size: clamp(1.25rem, 3vw, 1.875rem);
-  font-weight: 650;
-  line-height: 1.35;
-  letter-spacing: -0.015em;
 }
 
+/* Negative margins cancel the padding so line widths match the measured text. */
 .sb-keyword {
+  margin: 0 -0.15em;
   padding: 0 0.15em;
   border-radius: 0.2em;
   background: rgba(79, 209, 181, 0.18);
@@ -509,29 +543,35 @@ button {
 }
 
 .sb-quote__text {
-  position: relative;
   margin: 0;
-  max-width: 26ch;
-  font-size: clamp(1.375rem, 3.4vw, 2.125rem);
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.015em;
+  padding: 0;
+  border: 0;
 }
 
-.sb-quote__text::before {
-  content: '“';
-  display: block;
-  height: 0.55em;
+.sb-quote__mark {
+  width: 100%;
+  overflow: visible;
   color: var(--sb-c-quote);
-  font-size: 2.4em;
-  line-height: 1;
+  font-weight: 800;
+  text-align: center;
 }
 
 .sb-timeline__track {
   position: relative;
-  width: min(320px, 70%);
+  flex: none;
+  width: 70%;
+}
+
+/* The 2 px track line sits in the middle of the decoration area. */
+.sb-timeline__track::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--sb-c-timeline), transparent);
+  transform: translateY(-50%);
 }
 
 .sb-timeline__dot {
@@ -547,11 +587,8 @@ button {
 }
 
 .sb-timeline__label {
+  margin: 0;
   color: var(--sb-c-timeline);
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
 }
 
 /* ---------- Template badges ---------- */
@@ -589,20 +626,6 @@ button {
   margin-bottom: 14px;
 }
 
-.sb-export {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px 16px;
-}
-
-.sb-export__hint {
-  flex: 1 1 220px;
-  margin: 0;
-  color: var(--sb-muted);
-  font-size: 0.875rem;
-}
-
 .sb-export__problem {
   flex-basis: 100%;
   padding: 12px 14px;
@@ -625,6 +648,401 @@ button {
 .sb-export__error-path {
   font-family: ui-monospace, 'SF Mono', Menlo, monospace;
   color: var(--sb-c-quote);
+}
+
+.sb-export__error {
+  margin: 2px 0;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Step 3: export panel (ExportPanel) ---------- */
+
+.sb-export-panel {
+  display: grid;
+  gap: 16px;
+}
+
+/* Format choice: three large radio cards. */
+.sb-format {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.sb-format__legend {
+  margin-bottom: 10px;
+  padding: 0;
+  color: var(--sb-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.sb-format__options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.sb-format__option {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 64px;
+  padding: 14px 16px;
+  border: 1px solid var(--sb-line);
+  border-radius: var(--sb-radius-sm);
+  background: var(--sb-surface-2);
+  cursor: pointer;
+  transition: background-color 160ms var(--sb-ease), border-color 160ms var(--sb-ease);
+}
+
+/* Visible radio dot, so the choice reads as "pick one". */
+.sb-format__option::before {
+  content: '';
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  border: 2px solid var(--sb-faint);
+  border-radius: 50%;
+  transition: border-color 160ms var(--sb-ease), box-shadow 160ms var(--sb-ease);
+}
+
+.sb-format__option:hover:not(.sb-format__option--disabled) {
+  border-color: var(--sb-faint);
+}
+
+.sb-format__option--checked {
+  border-color: var(--sb-accent);
+  background: var(--sb-accent-soft);
+}
+
+.sb-format__option--checked::before {
+  border-color: var(--sb-accent);
+  box-shadow: inset 0 0 0 3px var(--sb-surface-2), inset 0 0 0 9px var(--sb-accent);
+}
+
+.sb-format__option:has(.sb-format__input:focus-visible) {
+  outline: 2px solid var(--sb-accent);
+  outline-offset: 2px;
+}
+
+.sb-format__option--disabled,
+.sb-format:disabled .sb-format__option {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.sb-format__text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.sb-format__label {
+  font-weight: 650;
+}
+
+.sb-format__desc {
+  color: var(--sb-muted);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+/* Subtitle sub-choice: SRT / WebVTT pills. */
+.sb-format__sub {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  min-width: 0;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--sb-line);
+  border-radius: var(--sb-radius-sm);
+  background: var(--sb-bg);
+}
+
+.sb-format__sub-legend {
+  float: left;
+  margin-right: 4px;
+  padding: 0;
+  color: var(--sb-muted);
+  font-size: 0.875rem;
+}
+
+.sb-format__sub-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--sb-line);
+  border-radius: 999px;
+  background: var(--sb-surface-2);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.sb-format__sub-option--checked {
+  border-color: var(--sb-accent);
+  background: var(--sb-accent-soft);
+  color: var(--sb-ink);
+}
+
+.sb-format__sub-option:has(.sb-format__sub-input:focus-visible) {
+  outline: 2px solid var(--sb-accent);
+  outline-offset: 2px;
+}
+
+.sb-format__sub:disabled .sb-format__sub-option {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* "16:9 · 42.5 seconds" */
+.sb-export-panel__info {
+  margin: 0;
+  color: var(--sb-muted);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.sb-export-panel__info strong {
+  color: var(--sb-ink);
+  font-weight: 600;
+}
+
+.sb-export-panel__unsupported {
+  margin: 0;
+  padding: 10px 14px;
+  border-left: 3px solid var(--sb-faint);
+  border-radius: 0 var(--sb-radius-sm) var(--sb-radius-sm) 0;
+  background: var(--sb-surface-2);
+  color: var(--sb-muted);
+  font-size: 0.875rem;
+}
+
+.sb-export-panel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+}
+
+.sb-export-panel__download {
+  min-width: 200px;
+}
+
+/* Render progress: bar, "37%", "Scene 4 / 12", keep-tab-open note, Cancel. */
+.sb-render {
+  display: grid;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 138, 61, 0.35);
+  border-radius: var(--sb-radius-sm);
+  background: var(--sb-accent-soft);
+}
+
+.sb-render__bar {
+  display: block;
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 999px;
+  background: var(--sb-line);
+  color: var(--sb-accent);
+  appearance: none;
+}
+
+.sb-render__bar::-webkit-progress-bar {
+  border-radius: 999px;
+  background: var(--sb-line);
+}
+
+.sb-render__bar::-webkit-progress-value {
+  border-radius: 999px;
+  background: var(--sb-accent);
+  transition: width 200ms linear;
+}
+
+.sb-render__bar::-moz-progress-bar {
+  border-radius: 999px;
+  background: var(--sb-accent);
+}
+
+.sb-render__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.sb-render__percent {
+  color: var(--sb-ink);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.sb-render__scene {
+  color: var(--sb-muted);
+  font-size: 0.875rem;
+}
+
+.sb-render__message {
+  margin: 0;
+  color: var(--sb-muted);
+  font-size: 0.875rem;
+}
+
+.sb-render__cancel {
+  justify-self: start;
+}
+
+/* Outcome notices after a job. */
+.sb-notice {
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px solid var(--sb-line);
+  border-left-width: 3px;
+  border-radius: var(--sb-radius-sm);
+  background: var(--sb-surface-2);
+  font-size: 0.875rem;
+}
+
+.sb-notice__title {
+  display: block;
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+
+.sb-notice__text {
+  color: var(--sb-muted);
+}
+
+.sb-notice--info {
+  border-left-color: var(--sb-c-timeline);
+}
+
+.sb-notice--warning {
+  border-left-color: var(--sb-c-big-number);
+}
+
+.sb-notice--error {
+  border-color: rgba(255, 122, 144, 0.4);
+  border-left-color: var(--sb-c-quote);
+  background: rgba(255, 122, 144, 0.08);
+}
+
+@media (max-width: 900px) {
+  .sb-format__options {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Step 2: video shape (AspectRatioPicker) ---------- */
+
+.sb-ratio {
+  min-width: 0;
+  margin: 0 0 14px;
+  padding: 0;
+  border: 0;
+}
+
+.sb-ratio__legend {
+  margin-bottom: 8px;
+  padding: 0;
+  color: var(--sb-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.sb-ratio__options {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.sb-ratio__option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 56px;
+  padding: 8px 12px;
+  border: 1px solid var(--sb-line);
+  border-radius: var(--sb-radius-sm);
+  background: var(--sb-surface-2);
+  cursor: pointer;
+  transition: background-color 160ms var(--sb-ease), border-color 160ms var(--sb-ease);
+}
+
+.sb-ratio__option:hover {
+  border-color: var(--sb-faint);
+}
+
+.sb-ratio__option--checked {
+  border-color: var(--sb-accent);
+  background: var(--sb-accent-soft);
+}
+
+.sb-ratio__option:has(.sb-ratio__input:focus-visible) {
+  outline: 2px solid var(--sb-accent);
+  outline-offset: 2px;
+}
+
+/* Small outlined rectangle in the ratio's proportion (size set inline). */
+.sb-ratio__shape {
+  flex: none;
+  border: 2px solid var(--sb-faint);
+  border-radius: 3px;
+  transition: border-color 160ms var(--sb-ease), background-color 160ms var(--sb-ease);
+}
+
+.sb-ratio__option--checked .sb-ratio__shape {
+  border-color: var(--sb-accent);
+  background: rgba(255, 138, 61, 0.2);
+}
+
+.sb-ratio__text {
+  display: grid;
+  min-width: 0;
+}
+
+.sb-ratio__label {
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.sb-ratio__hint {
+  overflow: hidden;
+  color: var(--sb-muted);
+  font-size: 0.75rem;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sb-ratio:disabled .sb-ratio__option {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.sb-ratio:disabled .sb-ratio__option:hover {
+  border-color: var(--sb-line);
+}
+
+@media (max-width: 900px) {
+  .sb-ratio__options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sb-ratio__hint {
+    white-space: normal;
+  }
 }
 
 /* ---------- Scene list ---------- */
@@ -720,6 +1138,208 @@ button {
   white-space: nowrap;
 }
 
+/*
+ * Editable rows (StoryboardList with `editor`): each <li class="sb-list__item">
+ * holds the selecting .sb-list__row button and a .sb-list__editor area below
+ * it, indented to line up with the scene text.
+ */
+.sb-list__rows--editable {
+  gap: 6px;
+  max-height: 560px;
+}
+
+.sb-list__item {
+  border: 1px solid transparent;
+  border-radius: var(--sb-radius-sm);
+  transition: background-color 160ms var(--sb-ease), border-color 160ms var(--sb-ease);
+}
+
+.sb-list__item--current {
+  background: var(--sb-accent-soft);
+  border-color: rgba(255, 138, 61, 0.35);
+}
+
+.sb-list__item--editing {
+  background: var(--sb-surface-2);
+  border-color: var(--sb-faint);
+}
+
+/* Inside an item, the item carries the current highlight instead of the button. */
+.sb-list__item .sb-list__row--current {
+  background: transparent;
+  border-color: transparent;
+}
+
+.sb-list__item .sb-list__row:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.sb-list__item--editing .sb-list__text {
+  color: var(--sb-muted);
+}
+
+.sb-list__editor {
+  padding: 0 12px 10px 56px;
+}
+
+/* ---------- Scene editor (SceneEditor) ---------- */
+
+.sb-editor {
+  display: grid;
+  gap: 10px;
+}
+
+.sb-editor__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+}
+
+.sb-editor__template {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sb-editor__template-label {
+  color: var(--sb-muted);
+  font-size: 0.8125rem;
+}
+
+.sb-editor__select {
+  min-height: 44px;
+  padding: 0 36px 0 14px;
+  border: 1px solid var(--sb-line);
+  border-radius: 999px;
+  background-color: var(--sb-bg);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--sb-muted) 50%),
+    linear-gradient(135deg, var(--sb-muted) 50%, transparent 50%);
+  background-position: right 18px center, right 13px center;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+  color: var(--sb-ink);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  appearance: none;
+  transition: border-color 160ms var(--sb-ease);
+}
+
+.sb-editor__select:hover:not(:disabled) {
+  border-color: var(--sb-faint);
+}
+
+.sb-editor__select:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* The select's text takes the template colour, like the badges. */
+.sb-editor__select[data-template='big-number'] { color: var(--sb-c-big-number); }
+.sb-editor__select[data-template='keyword-highlight'] { color: var(--sb-c-keyword-highlight); }
+.sb-editor__select[data-template='quote'] { color: var(--sb-c-quote); }
+.sb-editor__select[data-template='timeline'] { color: var(--sb-c-timeline); }
+
+.sb-editor__select option {
+  background: var(--sb-surface);
+  color: var(--sb-ink);
+}
+
+.sb-editor__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sb-editor__chip--auto {
+  border: 1px solid var(--sb-line);
+  color: var(--sb-muted);
+}
+
+.sb-editor__chip--edited {
+  border: 1px solid rgba(255, 138, 61, 0.45);
+  background: var(--sb-accent-soft);
+  color: var(--sb-accent);
+}
+
+.sb-editor__chip--edited::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sb-accent);
+}
+
+.sb-editor__edit-button,
+.sb-editor__reset,
+.sb-editor__save,
+.sb-editor__cancel {
+  padding: 0 14px;
+  font-size: 0.875rem;
+}
+
+.sb-editor__edit {
+  display: grid;
+  gap: 8px;
+}
+
+.sb-editor__label {
+  color: var(--sb-muted);
+  font-size: 0.8125rem;
+}
+
+.sb-editor__field {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  overflow: hidden;
+  resize: none;
+  border: 1px solid var(--sb-line);
+  border-radius: var(--sb-radius-sm);
+  background: var(--sb-bg);
+  color: var(--sb-ink);
+  font: inherit;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  transition: border-color 160ms var(--sb-ease);
+}
+
+.sb-editor__field:focus {
+  outline: none;
+  border-color: var(--sb-accent);
+}
+
+.sb-editor__field:focus-visible {
+  outline: 2px solid var(--sb-accent);
+  outline-offset: 1px;
+}
+
+.sb-editor__field--invalid,
+.sb-editor__field--invalid:focus {
+  border-color: var(--sb-c-quote);
+}
+
+.sb-editor__error {
+  margin: 0;
+  color: var(--sb-c-quote);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.sb-editor__edit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 /* ---------- Error boundary & utilities ---------- */
 
 .sb-error-boundary {
@@ -763,5 +1383,34 @@ button {
   }
   .sb-list__text {
     white-space: normal;
+  }
+  .sb-list__editor {
+    padding: 0 10px 10px;
+  }
+  .sb-editor__controls > .sb-button {
+    flex: 1 1 auto;
+  }
+  .sb-editor__template {
+    flex: 1 1 100%;
+  }
+  .sb-editor__select {
+    flex: 1;
+  }
+  .sb-export-panel__actions .sb-button,
+  .sb-render__cancel {
+    width: 100%;
+  }
+  .sb-ratio__option {
+    padding: 8px 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sb-list__item,
+  .sb-format__option::before {
+    transition: none;
+  }
+  .sb-render__bar::-webkit-progress-value {
+    transition: none;
   }
 }

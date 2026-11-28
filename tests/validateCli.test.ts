@@ -86,3 +86,38 @@ describe('validate-storyboard CLI', () => {
     TIMEOUT,
   );
 });
+
+// Requirements: 5.12
+describe('validate-storyboard CLI with version 1.1', () => {
+  const VALID_11 = 'tests/fixtures/valid-1.1.storyboard.json';
+  const INVALID_11 = 'tests/fixtures/invalid-1.1.storyboard.json';
+
+  it(
+    'exits 0 for the valid 1.1 fixture',
+    () => {
+      const r = run([VALID_11]);
+      expect(r.status).toBe(0);
+      expect(r.stdout).toContain(`${VALID_11}: valid`);
+    },
+    TIMEOUT,
+  );
+
+  it(
+    'exits 1 and reports $.scenes[1].templateSource for the invalid 1.1 fixture',
+    () => {
+      const r = run([INVALID_11]);
+      expect(r.status).toBe(1);
+      expect(`${r.stdout}${r.stderr}`).toContain('$.scenes[1].templateSource');
+    },
+    TIMEOUT,
+  );
+
+  it(
+    'keeps the 1.0 fixture results',
+    () => {
+      expect(run([VALID]).status).toBe(0);
+      expect(run([INVALID]).status).toBe(1);
+    },
+    TIMEOUT * 2,
+  );
+});
