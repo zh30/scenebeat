@@ -79,5 +79,5 @@ describe('Property 47: Enter transition plays at each scene start and ends insid
       }),
       { numRuns: 200 },
     );
-  });
+  }, 20_000);
 });

@@ -20,6 +20,16 @@ SceneBeat turns a podcast or video transcript into an animated motion storyboard
   - **Video**: a silent video of your scenes (MP4 or WebM).
   - **Subtitles**: an SRT or WebVTT file with one caption per scene.
   - **Storyboard (JSON)**: a validated file named `scenebeat-storyboard-YYYYMMDD-HHmmss.json`.
+- **Installable app** that works offline after the first visit and remembers your work on this device (details below).
+
+### Install and offline use
+
+- **Install as an app**: in Chrome or Edge on desktop or Android, click the "Install app" button in the header (or the install icon in the address bar). On iPhone or iPad, open SceneBeat in Safari, tap **Share**, then **Add to Home Screen**; SceneBeat shows this hint in the header. You can dismiss the button or hint, and it stays hidden after that.
+- **Works offline**: after the first visit, the whole app is stored in the browser, so it opens and every feature works without a connection, including video export. A one-time "Ready to work offline" notice tells you when this is done.
+- **Saved on this device only**: your transcript, scene edits, video shape, and export choices are saved in this browser's local storage and restored the next time you open SceneBeat. Nothing is uploaded or synced to other devices. "Clear" also removes the saved copy. Very large transcripts (over about one million characters) are not saved, and SceneBeat tells you when that happens or when the browser blocks storage.
+- **Updates**: when a new version is available, SceneBeat shows "New version available" with **Reload** and **Later**. It never reloads on its own. Reload is disabled while a video is rendering or a scene's text editor is open.
+- **App shortcuts** (installed app in Chrome on Android and desktop): right-click the dock or taskbar icon, or long-press the home-screen icon, for **New transcript** and **Load sample**. If you already have a transcript, SceneBeat asks before replacing it.
+- **Share into SceneBeat** (installed app on Android and ChromeOS): share text from another app to SceneBeat and it becomes the transcript, again with a confirmation if a different transcript is open. Opening a shortcut or sharing reuses the open SceneBeat window, and waits until a running video render finishes.
 
 ### Editing scenes
 
@@ -84,6 +94,34 @@ pnpm build     # type-check (tsc --noEmit) and build static files into dist/
 pnpm preview   # serve the production build locally
 pnpm test      # run all unit and property-based tests once (Vitest)
 ```
+
+## PWA development
+
+The service worker is registered only in the production build; `pnpm dev` never registers one, so development never serves stale cached files. To try install, offline use, and updates locally, use `pnpm build && pnpm preview`. Service workers only run over HTTPS or on `localhost`, so a deployed copy must be served over HTTPS.
+
+```sh
+pnpm generate:pwa-assets   # regenerate the icons, favicon, and placeholder screenshots in public/
+pnpm build && pnpm check:pwa   # build, then check dist/ for the manifest, service worker, precache list, and relative URLs
+```
+
+`pnpm check:pwa` exits with code 0 when the build passes and 1 otherwise, printing each problem. `pnpm build` never runs `generate:pwa-assets`; the generated files under `public/` are committed.
+
+**Screenshots**: `generate:pwa-assets` writes placeholder screenshots only when `public/screenshots/wide.png` and `narrow.png` don't exist, and never overwrites them. To replace them with real screenshots, run `pnpm preview`, open Chrome DevTools, turn on the device toolbar, set the size to exactly 1280 × 720 (wide) or 750 × 1334 with device pixel ratio 1 (narrow), and use **Capture screenshot** from the DevTools menu. Save the files as PNG under 1 MiB at those paths.
+
+**Deploying under a sub-path**: the build uses relative URLs throughout, so the same `dist/` works at the site root and under a sub-path such as `https://zh30.github.io/scenebeat/`. Upload `dist/` as is; no base setting is needed.
+
+### Manual Chrome checklist
+
+1. Run `pnpm build && pnpm preview` and open DevTools **Application → Manifest**: no errors or warnings; icons, screenshots, shortcuts, share target, and Window Controls Overlay are listed; the installability section reports no issues.
+2. **Application → Service workers**: `sw.js` is activated with a scope equal to the page base. **Cache storage**: the `workbox-precache-v2-…` cache lists `index.html`, all bundles, the manifest, and the icons.
+3. **Network → Offline**, then reload: the app loads. Paste a transcript, edit a scene, and export SRT, JSON, and a video.
+4. Install from the address-bar install icon and from the in-app "Install app" button; the installed window opens without browser UI. Right-click the dock or taskbar icon: "New transcript" and "Load sample" work, with the confirmation when a transcript exists.
+5. In the installed window, toggle the title bar (the Window Controls Overlay chevron): the header moves into the title bar, dragging works on empty areas, and the buttons still click.
+6. Update prompt: change a visible string, rebuild, keep the preview tab open, and reload once: "New version available" appears. Start a video render and confirm Reload is disabled with its note; open a scene editor and confirm the editing note. "Reload" loads the new version with the transcript intact.
+7. Saved work: edit, close the window, reopen: the transcript, edits, video shape, and export choice are restored.
+8. Share target: open `./?text=Hello%20world.&title=Note` directly (share sheets deliver this only on Android and ChromeOS).
+9. Sub-path: run `pnpm exec vite preview --base /scenebeat/` and repeat steps 1 to 3 at `http://localhost:4173/scenebeat/`.
+10. iOS Safari (device or simulator): the install hint shows in the tab; after Add to Home Screen the app opens standalone, with content clear of the notch and home indicator and no overscroll bounce.
 
 ## Storyboard JSON format
 
@@ -164,7 +202,7 @@ The script prints each error as `path: message` and exits with code 1 on validat
 
 - **Steering files** in `.kiro/steering/` describe the product, the tech stack, and the directory structure, so Kiro follows the project's conventions.
 - **Storyboard validation hook** in `.kiro/hooks/` runs `scripts/validate-storyboard.ts` whenever a `*.storyboard.json` or `scenebeat-storyboard-*.json` file is saved in the workspace, and reports any validation errors.
-- The spec for the MVP (requirements, design, and tasks) is in `.kiro/specs/scenebeat-mvp/`. The spec for scene editing, subtitles, and video export is in `.kiro/specs/scenebeat-edit-export/`.
+- The spec for the MVP (requirements, design, and tasks) is in `.kiro/specs/scenebeat-mvp/`. The spec for scene editing, subtitles, and video export is in `.kiro/specs/scenebeat-edit-export/`. The spec for the installable, offline PWA (install, offline use, updates, saved work, shortcuts, and share target) is in `.kiro/specs/scenebeat-pwa/`.
 
 ## License
 

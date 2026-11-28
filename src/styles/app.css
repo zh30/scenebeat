@@ -41,9 +41,64 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* No font inflation in landscape; no grey tap flash (each control has its own :active). */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
 button {
   font: inherit;
   color: inherit;
+}
+
+/* ---------- Touch behaviour (Req 10.5, 10.6) ---------- */
+
+button,
+a,
+select,
+summary,
+label,
+[role='button'],
+input[type='radio'],
+input[type='checkbox'] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Fire click right away: these controls never double-tap-zoom. */
+button,
+a,
+select,
+label,
+[role='button'] {
+  touch-action: manipulation;
+}
+
+/* Controls are not content: a long-press must not select their label. */
+button,
+[role='button'],
+.sb-badge,
+.sb-editor__chip,
+.sb-ratio__option,
+.sb-format__option,
+.sb-format__sub-option,
+.sb-step__number,
+.sb-brand {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Content stays selectable, including scene text inside the list row buttons. */
+textarea,
+input[type='text'],
+.sb-transcript__textarea,
+.sb-editor__field,
+.sb-list__text {
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
 }
 
 :focus-visible {
@@ -53,10 +108,33 @@ button {
 
 /* ---------- Layout ---------- */
 
+/*
+ * App shell: the page paints edge to edge (viewport-fit=cover); the content is
+ * padded away from the notch, rounded corners, and home indicator (Req 10.1).
+ * 100vh is the fallback for browsers without dynamic viewport units (Req 10.2).
+ */
 .sb-app {
+  --sb-pad-top: 32px;
+  --sb-pad-x: 24px;
+  --sb-pad-bottom: 40px;
   max-width: 1200px;
+  min-height: 100vh;
+  min-height: 100dvh;
   margin: 0 auto;
-  padding: 32px 24px 40px;
+  padding-top: max(var(--sb-pad-top), env(safe-area-inset-top, 0px));
+  padding-right: max(var(--sb-pad-x), env(safe-area-inset-right, 0px));
+  padding-bottom: max(var(--sb-pad-bottom), env(safe-area-inset-bottom, 0px));
+  padding-left: max(var(--sb-pad-x), env(safe-area-inset-left, 0px));
+}
+
+/* While a notice is shown, leave room so it never covers the last controls. */
+.sb-app:has(.sb-notice-area > *) {
+  padding-bottom: calc(max(var(--sb-pad-bottom), env(safe-area-inset-bottom, 0px)) + 120px);
+}
+
+/* The title copy repeated in the first card is only shown in Window Controls Overlay. */
+.sb-wco-intro {
+  display: none;
 }
 
 .sb-header {
@@ -133,7 +211,9 @@ button {
 
 @media (max-width: 900px) {
   .sb-app {
-    padding: 24px 16px 32px;
+    --sb-pad-top: 24px;
+    --sb-pad-x: 16px;
+    --sb-pad-bottom: 32px;
   }
   .sb-main {
     grid-template-columns: 1fr;
@@ -205,8 +285,11 @@ button {
   color: var(--sb-accent-ink);
 }
 
-.sb-button--primary:hover:not(:disabled) {
-  background: #ff9d5c;
+/* Hover styles are gated to precise pointers so they never stick after a tap. */
+@media (hover: hover) and (pointer: fine) {
+  .sb-button--primary:hover:not(:disabled) {
+    background: #ff9d5c;
+  }
 }
 
 .sb-button--soft {
@@ -214,8 +297,10 @@ button {
   border-color: var(--sb-line);
 }
 
-.sb-button--soft:hover:not(:disabled) {
-  border-color: var(--sb-faint);
+@media (hover: hover) and (pointer: fine) {
+  .sb-button--soft:hover:not(:disabled) {
+    border-color: var(--sb-faint);
+  }
 }
 
 .sb-button--ghost {
@@ -223,8 +308,10 @@ button {
   color: var(--sb-muted);
 }
 
-.sb-button--ghost:hover:not(:disabled) {
-  color: var(--sb-ink);
+@media (hover: hover) and (pointer: fine) {
+  .sb-button--ghost:hover:not(:disabled) {
+    color: var(--sb-ink);
+  }
 }
 
 .sb-button--large {
@@ -380,8 +467,10 @@ button {
   background: var(--sb-surface-2);
 }
 
-.sb-icon-button:hover:not(:disabled) {
-  background: var(--sb-line);
+@media (hover: hover) and (pointer: fine) {
+  .sb-icon-button:hover:not(:disabled) {
+    background: var(--sb-line);
+  }
 }
 
 .sb-play-button {
@@ -396,8 +485,10 @@ button {
   height: 26px;
 }
 
-.sb-play-button:hover:not(:disabled) {
-  background: #ff9d5c;
+@media (hover: hover) and (pointer: fine) {
+  .sb-play-button:hover:not(:disabled) {
+    background: #ff9d5c;
+  }
 }
 
 .sb-icon-button:active:not(:disabled),
@@ -710,8 +801,10 @@ button {
   transition: border-color 160ms var(--sb-ease), box-shadow 160ms var(--sb-ease);
 }
 
-.sb-format__option:hover:not(.sb-format__option--disabled) {
-  border-color: var(--sb-faint);
+@media (hover: hover) and (pointer: fine) {
+  .sb-format__option:hover:not(.sb-format__option--disabled) {
+    border-color: var(--sb-faint);
+  }
 }
 
 .sb-format__option--checked {
@@ -981,8 +1074,10 @@ button {
   transition: background-color 160ms var(--sb-ease), border-color 160ms var(--sb-ease);
 }
 
-.sb-ratio__option:hover {
-  border-color: var(--sb-faint);
+@media (hover: hover) and (pointer: fine) {
+  .sb-ratio__option:hover {
+    border-color: var(--sb-faint);
+  }
 }
 
 .sb-ratio__option--checked {
@@ -1032,8 +1127,10 @@ button {
   cursor: not-allowed;
 }
 
-.sb-ratio:disabled .sb-ratio__option:hover {
-  border-color: var(--sb-line);
+@media (hover: hover) and (pointer: fine) {
+  .sb-ratio:disabled .sb-ratio__option:hover {
+    border-color: var(--sb-line);
+  }
 }
 
 @media (max-width: 900px) {
@@ -1111,8 +1208,10 @@ button {
   transition: background-color 160ms var(--sb-ease), border-color 160ms var(--sb-ease);
 }
 
-.sb-list__row:hover {
-  background: var(--sb-surface-2);
+@media (hover: hover) and (pointer: fine) {
+  .sb-list__row:hover {
+    background: var(--sb-surface-2);
+  }
 }
 
 .sb-list__row--current {
@@ -1170,8 +1269,10 @@ button {
   border-color: transparent;
 }
 
-.sb-list__item .sb-list__row:hover {
-  background: rgba(255, 255, 255, 0.03);
+@media (hover: hover) and (pointer: fine) {
+  .sb-list__item .sb-list__row:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
 }
 
 .sb-list__item--editing .sb-list__text {
@@ -1228,8 +1329,10 @@ button {
   transition: border-color 160ms var(--sb-ease);
 }
 
-.sb-editor__select:hover:not(:disabled) {
-  border-color: var(--sb-faint);
+@media (hover: hover) and (pointer: fine) {
+  .sb-editor__select:hover:not(:disabled) {
+    border-color: var(--sb-faint);
+  }
 }
 
 .sb-editor__select:disabled {
@@ -1412,5 +1515,391 @@ button {
   }
   .sb-render__bar::-webkit-progress-value {
     transition: none;
+  }
+}
+
+/* ---------- Mobile input sizing ---------- */
+
+/* iOS Safari zooms into any field under 16px and never zooms back (fix the cause, never disable zoom). */
+@media (pointer: coarse) {
+  input,
+  textarea,
+  select,
+  .sb-transcript__textarea,
+  .sb-editor__field,
+  .sb-editor__select {
+    font-size: 16px;
+  }
+}
+
+/* An inner scroller hitting its end must not drag the page with it. */
+.sb-list__rows {
+  overscroll-behavior: contain;
+}
+
+/* ---------- Header: install UI (InstallButton) ---------- */
+
+/* The Install_UI shares the brand row; title and tagline keep their layout below. */
+.sb-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  column-gap: 12px;
+}
+
+.sb-header > :not(.sb-brand):not(.sb-install) {
+  grid-column: 1 / -1;
+}
+
+.sb-install {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.sb-install__button {
+  min-height: 40px;
+  padding: 0 16px;
+  font-size: 0.875rem;
+}
+
+.sb-install__dismiss {
+  min-width: 40px;
+  min-height: 40px;
+  padding: 0;
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
+.sb-install--ios {
+  max-width: 34ch;
+  padding: 4px 4px 4px 14px;
+  border: 1px solid var(--sb-line);
+  border-radius: var(--sb-radius-sm);
+  background: var(--sb-surface);
+}
+
+.sb-install__text {
+  margin: 0;
+  color: var(--sb-muted);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 520px) {
+  .sb-install--ios {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    max-width: none;
+    margin-bottom: 16px;
+  }
+}
+
+/* ---------- Transcript saved note ---------- */
+
+.sb-transcript__saved-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: -4px 0 0;
+  color: var(--sb-faint);
+  font-size: 0.8125rem;
+}
+
+.sb-transcript__saved-note::before {
+  content: '';
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sb-c-keyword-highlight);
+}
+
+/* ---------- Notice area, update toast ---------- */
+
+/*
+ * Fixed above the home indicator and clear of rounded corners. The area itself
+ * lets taps through; only the notices take pointer events, so empty space next
+ * to a notice never blocks the controls underneath.
+ */
+.sb-notice-area {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right, 0px));
+  bottom: max(16px, env(safe-area-inset-bottom, 0px));
+  left: max(16px, env(safe-area-inset-left, 0px));
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.sb-notice-area > * {
+  width: min(100%, 380px);
+  pointer-events: auto;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  animation: sb-toast-in 200ms var(--sb-ease) both;
+}
+
+.sb-notice-area .sb-notice {
+  background: var(--sb-surface-2);
+}
+
+.sb-notice-area .sb-notice--offline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 4px;
+  padding-right: 4px;
+}
+
+.sb-notice-area .sb-notice--offline .sb-notice__title {
+  margin: 0;
+}
+
+.sb-toast {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px 12px;
+  border: 1px solid rgba(255, 138, 61, 0.35);
+  border-radius: var(--sb-radius-sm);
+  background: var(--sb-surface-2);
+}
+
+.sb-toast__title {
+  margin: 0;
+  font-weight: 650;
+}
+
+.sb-toast__note {
+  margin: 0;
+  color: var(--sb-muted);
+  font-size: 0.8125rem;
+}
+
+.sb-toast__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.sb-toast__action {
+  min-height: 40px;
+  padding: 0 16px;
+  font-size: 0.875rem;
+}
+
+@keyframes sb-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* On phones the notices span the width and sit above the home indicator. */
+@media (max-width: 520px) {
+  .sb-notice-area {
+    right: max(12px, env(safe-area-inset-right, 0px));
+    bottom: max(12px, env(safe-area-inset-bottom, 0px));
+    left: max(12px, env(safe-area-inset-left, 0px));
+    align-items: stretch;
+  }
+  .sb-notice-area > * {
+    width: 100%;
+  }
+  .sb-toast__action {
+    flex: 1;
+  }
+}
+
+/* ---------- Replace confirmation (ConfirmReplaceDialog) ---------- */
+
+.sb-dialog {
+  width: min(calc(100vw - 32px), 420px);
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 22px 22px 18px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--sb-line);
+  border-radius: var(--sb-radius);
+  background: var(--sb-surface);
+  color: var(--sb-ink);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+}
+
+.sb-dialog[open],
+.sb-dialog--fallback {
+  animation: sb-dialog-in 180ms var(--sb-ease) both;
+}
+
+.sb-dialog::backdrop {
+  background: rgba(8, 7, 6, 0.66);
+}
+
+.sb-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px))
+    max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  background: rgba(8, 7, 6, 0.66);
+  overscroll-behavior: contain;
+}
+
+.sb-dialog--fallback {
+  position: relative;
+  margin: 0;
+}
+
+.sb-dialog__title {
+  margin: 0 0 8px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.sb-dialog__message {
+  margin: 0 0 20px;
+  color: var(--sb-muted);
+  font-size: 0.9375rem;
+}
+
+.sb-dialog__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+@keyframes sb-dialog-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .sb-dialog__actions {
+    flex-direction: column-reverse;
+  }
+  .sb-dialog__keep,
+  .sb-dialog__replace {
+    width: 100%;
+  }
+}
+
+/* ---------- Installed app (Req 10.3, 10.4) ---------- */
+
+/* Standalone only: no pull-to-refresh or bounce. A browser tab keeps its default. */
+@media (display-mode: standalone), (display-mode: window-controls-overlay) {
+  html,
+  body {
+    overscroll-behavior: none;
+  }
+}
+
+/* iOS home-screen apps report navigator.standalone instead of the display mode. */
+html.sb-standalone,
+html.sb-standalone body {
+  overscroll-behavior: none;
+}
+
+/* ---------- Window Controls Overlay (Req 11) ---------- */
+
+@media (display-mode: window-controls-overlay) {
+  .sb-header {
+    position: fixed;
+    top: env(titlebar-area-y, 0);
+    left: env(titlebar-area-x, 0);
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: env(titlebar-area-width, 100%);
+    height: env(titlebar-area-height, 40px);
+    margin: 0;
+    padding: 0 12px;
+    background: var(--sb-bg);
+    border-bottom: 1px solid var(--sb-line);
+    app-region: drag;
+    -webkit-app-region: drag;
+  }
+
+  .sb-header button,
+  .sb-header a,
+  .sb-header select,
+  .sb-header input,
+  .sb-header [role='button'] {
+    app-region: no-drag;
+    -webkit-app-region: no-drag;
+  }
+
+  .sb-header .sb-brand {
+    margin: 0;
+    font-size: 0.875rem;
+  }
+
+  .sb-header .sb-brand__mark {
+    width: 16px;
+    height: 16px;
+    border-radius: 5px;
+    box-shadow: none;
+  }
+
+  .sb-header .sb-install {
+    margin-left: auto;
+  }
+
+  .sb-header__title,
+  .sb-header__tagline {
+    display: none;
+  }
+
+  .sb-app {
+    padding-top: calc(env(titlebar-area-height, 40px) + var(--sb-pad-top));
+  }
+
+  .sb-wco-intro {
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .sb-wco-intro__title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  .sb-wco-intro__tagline {
+    margin: 6px 0 0;
+    color: var(--sb-muted);
+    font-size: 0.875rem;
+  }
+}
+
+/* ---------- Reduced motion for the PWA surfaces ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .sb-notice-area > *,
+  .sb-dialog[open],
+  .sb-dialog--fallback {
+    animation: sb-scene-fade 150ms linear both;
   }
 }

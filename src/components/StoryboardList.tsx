@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { countByTemplate } from '../core/stats';
 import { TEMPLATES, type Scene, type SceneTemplate, type Storyboard } from '../core/types';
 import { SceneEditor } from './SceneEditor';
@@ -24,15 +24,26 @@ export interface StoryboardListProps {
   onSelect: (index: number) => void;
   /** When given, each row hosts a SceneEditor; without it the list is read-only as in the MVP. */
   editor?: SceneEditorBindings;
+  /** Called with true when a scene text editor opens and false when none is open (Req 7.5). */
+  onEditingChange?: (editing: boolean) => void;
 }
 
 /** One row per scene (Req 6.1 to 6.3) plus total and per-template counts (Req 6.4). */
-export function StoryboardList({ storyboard, currentIndex, onSelect, editor }: StoryboardListProps) {
+export function StoryboardList({ storyboard, currentIndex, onSelect, editor, onEditingChange }: StoryboardListProps) {
   const counts = countByTemplate(storyboard);
   const total = storyboard.scenes.length;
   // Index of the scene whose text editor is open; only one at a time.
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const openIndex = editingIndex !== null && editingIndex < total ? editingIndex : null;
+
+  // Report the Editing_Session flag (Req 7.5). The callback is kept in a ref so a new
+  // function identity from the parent does not re-fire the report.
+  const editing = openIndex !== null;
+  const onEditingChangeRef = useRef(onEditingChange);
+  onEditingChangeRef.current = onEditingChange;
+  useEffect(() => {
+    onEditingChangeRef.current?.(editing);
+  }, [editing]);
 
   const rowButton = (scene: Scene, isCurrent: boolean) => (
     <button

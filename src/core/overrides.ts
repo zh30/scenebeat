@@ -76,15 +76,20 @@ export function applyOverrides(autos: readonly Scene[], overrides: SceneOverride
   });
 }
 
-/** Keeps only overrides whose (sourceText, rank) matches some Automatic_Scene. */
+/**
+ * Keeps only overrides whose (sourceText, rank) matches some Automatic_Scene.
+ * Returns `overrides` itself when every entry is kept, so callers can rely on identity.
+ */
 export function reconcileOverrides(autos: readonly Scene[], overrides: SceneOverrides): SceneOverrides {
   const ranks = occurrenceRanks(autos.map((a) => a.text));
   const live = new Set(autos.map((a, i) => overrideKey(a.text, ranks[i])));
   const result: Record<string, SceneOverride> = {};
+  let dropped = false;
   for (const [key, ov] of Object.entries(overrides)) {
     if (live.has(key) && key === overrideKey(ov.sourceText, ov.rank)) result[key] = ov;
+    else dropped = true;
   }
-  return result;
+  return dropped ? result : overrides;
 }
 
 /** Returns a copy of `overrides` with `key` set to `ov`, or removed when `ov` carries no edit. */
