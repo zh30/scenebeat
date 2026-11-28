@@ -14,7 +14,9 @@
     "build": "tsc --noEmit && vite build",
     "test": "vitest --run",
     "preview": "vite preview",
-    "validate:storyboard": "tsx scripts/validate-storyboard.ts"
+    "validate:storyboard": "tsx scripts/validate-storyboard.ts",
+    "generate:pwa-assets": "tsx scripts/generate-pwa-assets.ts",
+    "check:pwa": "tsx scripts/check-pwa-build.ts dist"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -34,6 +36,8 @@
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",
     "vite": "^8.4.0",
-    "vitest": "^5.1.2"
+    "vite-plugin-pwa": "2.0.0",
+    "vitest": "^5.1.2",
+    "workbox-window": "^7.4.1"
   }
 }

@@ -1,0 +1,1356 @@
+{
+  "pbtResults": {
+    "3.5 Write property test for manifest URLs in `tests/properties/p64-manifest-base-path.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795833318757
+    },
+    "5.8 Write property test for the saved work round trip in `tests/properties/p52-saved-work-round-trip.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795834048084
+    },
+    "5.10 Write property test for dropping invalid override entries in `tests/properties/p54-override-entries-dropped.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795834164311
+    },
+    "5.12 Write property test for start-up state in `tests/properties/p56-initial-work.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795834169612
+    },
+    "5.11 Write property test for setting fallbacks in `tests/properties/p55-settings-fallback.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795834188738
+    },
+    "5.9 Write property test for parser totality in `tests/properties/p53-work-parser-total.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795834219232
+    },
+    "5.13 Write property test for shared transcript composition in `tests/properties/p59-shared-transcript.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795834363214
+    },
+    "5.17 Write property test for the update gate model in `tests/properties/p63-update-gate.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795834459927
+    },
+    "5.14 Write property test for launch parser totality and precedence in `tests/properties/p60-launch-parser.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795834462843
+    },
+    "5.18 Write property test for launch parameter stripping in `tests/properties/p65-launch-param-strip.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795834465303
+    },
+    "5.16 Write property test for the install state invariant in `tests/properties/p62-install-state.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795834467007
+    },
+    "5.15 Write property test for the replace confirmation decision in `tests/properties/p61-replace-confirmation.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795834469114
+    },
+    "6.3 Write property test for failing writes in `tests/properties/p58-failed-write-safe.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795834547659
+    },
+    "6.2 Write property test for debounced saving in `tests/properties/p57-debounced-save.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795834563760
+    }
+  },
+  "executionHistory": {
+    "1. Install the PWA build tooling": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988563
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833043761
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833143528
+      }
+    ],
+    "2.1 Implement the PNG encoder in `scripts/png.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988565
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833153696
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833236149
+      }
+    ],
+    "2.3 Implement `scripts/generate-pwa-assets.ts`, add the `generate:pwa-assets` script, and commit the generated files": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988567
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833244835
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833379359
+      }
+    ],
+    "3.1 Implement `src/pwa/manifest.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988568
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833153129
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833234206
+      }
+    ],
+    "3.2 Configure `vite.config.ts` with `base: './'` and `VitePWA`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988571
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833245938
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833376527
+      }
+    ],
+    "3.3 Add `deploymentBaseArb` to `tests/properties/arbitraries.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988572
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833151940
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833235371
+      }
+    ],
+    "4. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988573
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833469385
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833544158
+      }
+    ],
+    "5.1 Implement `src/core/savedWork.ts` and move the export format types": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988574
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833553828
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833654514
+      }
+    ],
+    "5.2 Implement `src/core/launchParams.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988576
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833553015
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833655296
+      }
+    ],
+    "5.3 Implement `src/core/installPrompt.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988577
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833555002
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833656508
+      }
+    ],
+    "5.4 Implement `src/core/updateGate.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988579
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833555670
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833657333
+      }
+    ],
+    "5.5 Add the core generators to `tests/properties/arbitraries.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988580
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833667969
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833957203
+      }
+    ],
+    "6.1 Implement `src/pwa/storage.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988581
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833971214
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834094887
+      }
+    ],
+    "6.4 Implement `src/pwa/register.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988583
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833971378
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834095755
+      }
+    ],
+    "6.6 Implement `src/pwa/install.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988584
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833972621
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834096988
+      }
+    ],
+    "6.8 Implement `src/pwa/launch.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988585
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833973408
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834097801
+      }
+    ],
+    "6.9 Implement `src/pwa/deps.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988586
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834109387
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834247037
+      }
+    ],
+    "6.10 Implement `src/pwa/useSavedWork.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988589
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834259941
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834384649
+      }
+    ],
+    "6.11 Implement `src/pwa/useLaunchIntent.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988590
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834261143
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834385809
+      }
+    ],
+    "6.12 Implement `src/pwa/usePwa.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988591
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834262352
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834386638
+      }
+    ],
+    "6.13 Implement `src/pwa/browserDeps.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988593
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834263599
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834387884
+      }
+    ],
+    "7. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988594
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834586861
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834652312
+      }
+    ],
+    "8.1 Implement `src/components/InstallButton.tsx`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988595
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834662092
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834769575
+      }
+    ],
+    "8.2 Implement `src/components/UpdateToast.tsx`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988597
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834663327
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834770758
+      }
+    ],
+    "8.3 Implement `src/components/NoticeArea.tsx`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988598
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834664527
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834771566
+      }
+    ],
+    "8.4 Implement `src/components/ConfirmReplaceDialog.tsx`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988599
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834665322
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834772769
+      }
+    ],
+    "8.5 Add the `savedNote` prop to `src/components/TranscriptInput.tsx`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988600
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834666387
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834773981
+      }
+    ],
+    "8.6 Add the `onEditingChange` prop to `src/components/StoryboardList.tsx`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988601
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834774773
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834872269
+      }
+    ],
+    "9.1 Wire `src/components/App.tsx`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988603
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834980904
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835218122
+      }
+    ],
+    "9.2 Pass browser dependencies in `src/main.tsx`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988604
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834982132
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835218673
+      }
+    ],
+    "9.3 Isolate `localStorage` between tests in `tests/setup.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988605
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834982950
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835219480
+      }
+    ],
+    "10. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988608
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835403882
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835567820
+      }
+    ],
+    "11.1 Update `index.html`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988609
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835578004
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835801678
+      }
+    ],
+    "12.1 Update `src/styles/app.css`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988611
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835578798
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835803684
+      }
+    ],
+    "12.2 Adjust the header markup in `src/components/App.tsx` for Window Controls Overlay": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988613
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835580012
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835802886
+      }
+    ],
+    "13.1 Implement `scripts/check-pwa-build.ts` and the `check:pwa` script": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988615
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835580965
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835804885
+      }
+    ],
+    "14.1 Update `.kiro/steering/product.md`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988617
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835815595
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835923494
+      }
+    ],
+    "14.2 Update `.kiro/steering/tech.md`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988618
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835816165
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835920691
+      }
+    ],
+    "14.3 Update `.kiro/steering/structure.md`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988619
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835816967
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835925474
+      }
+    ],
+    "14.4 Update `README.md`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988621
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835818181
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835921487
+      }
+    ],
+    "15. Final checkpoint - Build, test, and check the PWA output": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832988622
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795836034902
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795836105832
+      }
+    ],
+    "2.2 Write unit tests for the PNG encoder in `tests/png.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832998481
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833247119
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833378167
+      }
+    ],
+    "2.4 Write asset tests in `tests/pwaAssets.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795832999636
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833380546
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833468879
+      }
+    ],
+    "3.4 Write manifest tests in `tests/manifest.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833000440
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833381259
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833467660
+      }
+    ],
+    "3.5 Write property test for manifest URLs in `tests/properties/p64-manifest-base-path.property.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833001646
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833247794
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833377320
+      }
+    ],
+    "5.6 Write unit tests for saved work in `tests/savedWork.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833002846
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833668080
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833958421
+      }
+    ],
+    "5.7 Write unit tests for launch parameters in `tests/launchParams.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833003660
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833668856
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833959610
+      }
+    ],
+    "5.8 Write property test for the saved work round trip in `tests/properties/p52-saved-work-round-trip.property.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833004834
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833974446
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834099037
+      }
+    ],
+    "5.9 Write property test for parser totality in `tests/properties/p53-work-parser-total.property.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833006074
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834110477
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834248259
+      }
+    ],
+    "5.10 Write property test for dropping invalid override entries in `tests/properties/p54-override-entries-dropped.property.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833006841
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834111674
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834246250
+      }
+    ],
+    "5.11 Write property test for setting fallbacks in `tests/properties/p55-settings-fallback.property.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833008065
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834112871
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834251217
+      }
+    ],
+    "5.12 Write property test for start-up state in `tests/properties/p56-initial-work.property.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833009265
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834113640
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834249450
+      }
+    ],
+    "5.13 Write property test for shared transcript composition in `tests/properties/p59-shared-transcript.property.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833010652
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834264405
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834383454
+      }
+    ],
+    "5.14 Write property test for launch parser totality and precedence in `tests/properties/p60-launch-parser.property.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833011266
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834398032
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834488111
+      }
+    ],
+    "5.15 Write property test for the replace confirmation decision in `tests/properties/p61-replace-confirmation.property.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833012474
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834399071
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834489712
+      }
+    ],
+    "5.16 Write property test for the install state invariant in `tests/properties/p62-install-state.property.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833013657
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834400279
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834490913
+      }
+    ],
+    "5.17 Write property test for the update gate model in `tests/properties/p63-update-gate.property.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833014453
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834401468
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834492068
+      }
+    ],
+    "5.18 Write property test for launch parameter stripping in `tests/properties/p65-launch-param-strip.property.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833015648
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834402587
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834493315
+      }
+    ],
+    "6.2 Write property test for debounced saving in `tests/properties/p57-debounced-save.property.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833016857
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834494503
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834583255
+      }
+    ],
+    "6.3 Write property test for failing writes in `tests/properties/p58-failed-write-safe.property.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833018056
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834495718
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834587479
+      }
+    ],
+    "6.5 Write unit tests for registration in `tests/register.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833018866
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834496903
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834584467
+      }
+    ],
+    "6.7 Write unit tests for platform detection in `tests/install.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833020061
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834497597
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834585666
+      }
+    ],
+    "8.7 Write component tests in `tests/InstallButton.test.tsx`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833020869
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834775974
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834873467
+      }
+    ],
+    "8.8 Write component tests in `tests/UpdateToast.test.tsx`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833022279
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834777177
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834874225
+      }
+    ],
+    "8.9 Write component tests in `tests/ConfirmReplaceDialog.test.tsx`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833022869
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834778014
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834875476
+      }
+    ],
+    "8.10 Extend `tests/StoryboardList.test.tsx` for `onEditingChange`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833024080
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834871034
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834965363
+      }
+    ],
+    "9.4 Write App persistence tests in `tests/App.persistence.test.tsx`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833024864
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835220678
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835403152
+      }
+    ],
+    "9.5 Write App update and offline tests in `tests/App.update.test.tsx`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833026114
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835221875
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835401934
+      }
+    ],
+    "9.6 Write App install tests in `tests/App.install.test.tsx`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833026872
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835222679
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835400911
+      }
+    ],
+    "9.7 Write App launch tests in `tests/App.launch.test.tsx`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833028042
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835223568
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835400919
+      }
+    ],
+    "11.2 Write HTML tests in `tests/indexHtml.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833028895
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835818757
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835922692
+      }
+    ],
+    "13.2 Write unit tests in `tests/checkPwaBuild.test.ts`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833029732
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835924705
+      },
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795836025246
+      }
+    ],
+    "3. Add the manifest and configure Vite": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833376528
+      }
+    ],
+    "2. Generate and commit the icon, favicon, and screenshot assets": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833379362
+      }
+    ],
+    "5. Implement the pure core modules": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795833957205
+      }
+    ],
+    "6. Implement the injected browser layer in `src/pwa/`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834387887
+      }
+    ],
+    "8. Build the UI components": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795834872272
+      }
+    ],
+    "9. Wire the PWA into the app": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835219482
+      }
+    ],
+    "11. Add the platform tags to `index.html`": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835801680
+      }
+    ],
+    "12. Add app-like styling and the Window Controls Overlay header": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835803687
+      }
+    ],
+    "13. Add the build check": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835804887
+      }
+    ],
+    "14. Update the documentation": [
+      {
+        "executionId": "fe524c3e-a986-4e7a-bfab-79eebc0c2acc",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795835925479
+      }
+    ]
+  }
+}

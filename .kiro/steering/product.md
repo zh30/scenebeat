@@ -20,13 +20,22 @@ SceneBeat is a client-side web app (built for Kiroween 2026). The user pastes a 
    - Video: silent, rendered in the browser (canvas plus MediaRecorder, 30 fps, real-time), MP4 (H.264) when supported, else WebM. Named `scenebeat-video-<16x9|9x16|1x1|4x5>-YYYYMMDD-HHmmss.<mp4|webm>`. Shows progress and Cancel; stops if the tab is hidden.
    - Subtitles: SRT (default) or WebVTT, one cue per scene timed cumulatively from durations, UTF-8 without BOM, named `scenebeat-subtitles-YYYYMMDD-HHmmss.<srt|vtt>`.
    - Storyboard JSON: `scenebeat-storyboard-YYYYMMDD-HHmmss.json`.
+8. Works as an installable PWA (production build only):
+   - Install: an "Install app" button when the browser offers it, Add to Home Screen instructions on iOS Safari; hidden when installed or dismissed.
+   - Offline: a service worker precaches the whole app shell, so every feature (including video export) works offline after the first visit. A one-time "Ready to work offline" notice appears.
+   - Updates: a non-blocking "New version available" prompt with Reload and Later; Reload is disabled during a render or while a scene editor is open, and the page never reloads on its own.
+   - Saved work: transcript, scene edits, aspect ratio, and export choices are saved in `localStorage` (`scenebeat:work:v1`) 500 ms after a change and restored on the next launch; "Clear" removes them. Saved on this device only.
+   - OS integration: manifest shortcuts "New transcript" (`?action=new`) and "Load sample" (`?action=sample`), a GET Web Share Target (`title`, `text`, `url`) that becomes the transcript, and `launch_handler` `focus-existing`. Replacing a non-empty, different transcript asks for confirmation.
+   - App-like layout: safe-area insets, `100dvh`, no overscroll bounce in standalone mode, Window Controls Overlay title bar. Works at `/` and under a sub-path such as `/scenebeat/`.
 
 ## Scope boundaries (MVP)
 
-- Runs entirely in the browser as a static Vite build. No network requests.
+- Runs entirely in the browser as a static Vite build. No network requests; the service worker only fetches app shell files from the deployment base.
 - In scope since `.kiro/specs/scenebeat-edit-export/`: in-browser silent video rendering (canvas plus MediaRecorder) and SRT/WebVTT subtitle files.
+- In scope since `.kiro/specs/scenebeat-pwa/`: installation, offline app shell, update prompt, saved work in `localStorage`, shortcuts, share target, and launch handling.
 - Out of scope: accounts, backend, network requests, audio processing or audio tracks, and native video-editor project formats (CapCut drafts, `.prproj`, `.drp`, FCPXML). SRT is the import path for those editors.
-- Do not add features outside the specs in `.kiro/specs/scenebeat-mvp/` and `.kiro/specs/scenebeat-edit-export/` without asking.
+- Also out of scope: push notifications, background sync, periodic background sync, runtime caching outside the app shell, `file_handlers` and `protocol_handlers` (no storyboard import), a light theme, syncing saved work between devices, and coordinating saved work between open windows (last write wins).
+- Do not add features outside the specs in `.kiro/specs/scenebeat-mvp/`, `.kiro/specs/scenebeat-edit-export/`, and `.kiro/specs/scenebeat-pwa/` without asking.
 
 ## Storyboard JSON
 

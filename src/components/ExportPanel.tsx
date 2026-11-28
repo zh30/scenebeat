@@ -17,8 +17,9 @@ import type { VideoSupport } from '../video/support';
 import { downloadBlob } from './download';
 import { DownloadIcon } from './icons';
 
-export type ExportFormat = 'video' | 'subtitles' | 'storyboard-json';
-export type SubtitleFormat = 'srt' | 'vtt';
+import type { ExportFormat, SubtitleFormat } from '../core/savedWork';
+
+export type { ExportFormat, SubtitleFormat };
 
 export interface ExportPanelProps {
   /** The edited (version 1.1) storyboard to export. */

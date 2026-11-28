@@ -168,4 +168,41 @@ describe('StoryboardList with editor bindings', () => {
     fireEvent.click(screen.getByRole('button', { name: /^4\s*Growth beats perfection\./ }));
     expect(onSelect).toHaveBeenCalledWith(3);
   });
+
+  describe('onEditingChange (Req 7.5)', () => {
+    function renderWithEditing() {
+      const onEditingChange = vi.fn();
+      render(
+        <StoryboardList
+          storyboard={storyboard}
+          currentIndex={0}
+          onSelect={vi.fn()}
+          editor={makeEditor()}
+          onEditingChange={onEditingChange}
+        />,
+      );
+      return onEditingChange;
+    }
+
+    it('reports false on mount, true when a text editor opens, and false when it is cancelled', () => {
+      const onEditingChange = renderWithEditing();
+      expect(onEditingChange.mock.calls).toEqual([[false]]);
+
+      fireEvent.click(screen.getByRole('button', { name: 'Edit text of scene 2' }));
+      expect(onEditingChange).toHaveBeenLastCalledWith(true);
+
+      fireEvent.click(screen.getByRole('button', { name: 'Cancel editing scene 2' }));
+      expect(onEditingChange.mock.calls).toEqual([[false], [true], [false]]);
+    });
+
+    it('reports false after a successful save and does not re-report when switching rows', () => {
+      const onEditingChange = renderWithEditing();
+      fireEvent.click(screen.getByRole('button', { name: 'Edit text of scene 1' }));
+      fireEvent.click(screen.getByRole('button', { name: 'Edit text of scene 3' }));
+      expect(onEditingChange.mock.calls).toEqual([[false], [true]]);
+
+      fireEvent.click(screen.getByRole('button', { name: 'Save text of scene 3' }));
+      expect(onEditingChange.mock.calls).toEqual([[false], [true], [false]]);
+    });
+  });
 });

@@ -7,6 +7,8 @@ export interface TranscriptInputProps {
   onClear: () => void;
   /** Disables the textarea, "Load sample", and "Clear" (e.g. while a video renders). */
   disabled?: boolean;
+  /** Optional note shown under the textarea (e.g. "Saved on this device only"). */
+  savedNote?: string;
 }
 
 export function TranscriptInput({
@@ -15,6 +17,7 @@ export function TranscriptInput({
   onLoadSample,
   onClear,
   disabled = false,
+  savedNote,
 }: TranscriptInputProps) {
   const textareaId = useId();
   const hintId = useId();
@@ -38,6 +41,7 @@ export function TranscriptInput({
         disabled={disabled}
         placeholder="Paste your podcast or video transcript here. Chinese and English both work."
       />
+      {savedNote ? <p className="sb-transcript__saved-note">{savedNote}</p> : null}
       <div className="sb-transcript__footer">
         <p className="sb-transcript__hint" id={hintId}>
           Each sentence becomes one scene. The preview updates as you type.
