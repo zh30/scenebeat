@@ -5,6 +5,9 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { Player, type PlayerProps } from '../src/components/Player';
 import { REDUCED_MOTION_TRANSITION_MS, TRANSITION_MS } from '../src/components/SceneView';
 import type { Scene, Storyboard } from '../src/core/types';
+import { ASPECT_RATIOS } from '../src/core/aspectRatio';
+import { layoutScene } from '../src/core/sceneLayout';
+import { fallbackMeasure } from '../src/video/measure';
 
 const scenes: Scene[] = [
   { index: 0, text: 'Revenue grew 45% last year.', template: 'big-number', durationMs: 2500, data: { value: '45%' } },
@@ -224,5 +227,118 @@ describe('Player transitions (Req 5.10, 5.11)', () => {
     expect(enter).toContain('transform');
     expect(css).toMatch(/\.sb-scene--reduced-motion\s*\{[^}]*animation-name:\s*sb-scene-fade/);
     expect(css).toMatch(/\.sb-scene--motion\s*\{[^}]*animation-name:\s*sb-scene-enter/);
+  });
+});
+
+describe('Player aspect ratio stage (Req 8.5)', () => {
+  const css = readFileSync(resolve(__dirname, '../src/styles/app.css'), 'utf8');
+  const screenEl = (container: HTMLElement) => container.querySelector('.sb-player__screen') as HTMLElement;
+  const stageEl = (container: HTMLElement) => container.querySelector('.sb-stage') as HTMLElement;
+
+  it('defaults to 16:9 when no ratio is given', () => {
+    const { container } = renderPlayer();
+    const el = screenEl(container);
+    expect(el.dataset.ratio).toBe('16:9');
+    expect(el.style.getPropertyValue('--sb-ratio-w')).toBe('16');
+    expect(el.style.getPropertyValue('--sb-ratio-h')).toBe('9');
+  });
+
+  it.each(ASPECT_RATIOS.map((r) => [r.id, r] as const))(
+    'sets data-ratio, ratio custom properties, and stage size for %s',
+    (id, spec) => {
+      const { container } = renderPlayer({ ratio: id });
+      const el = screenEl(container);
+      const [w, h] = id.split(':');
+      expect(el.dataset.ratio).toBe(id);
+      expect(el.style.getPropertyValue('--sb-ratio-w')).toBe(w);
+      expect(el.style.getPropertyValue('--sb-ratio-h')).toBe(h);
+      expect(Number(w) * spec.height).toBe(Number(h) * spec.width);
+      const stage = stageEl(container);
+      expect(stage.style.width).toBe(`${spec.width}px`);
+      expect(stage.style.height).toBe(`${spec.height}px`);
+      expect(stage.style.transformOrigin).toMatch(/^0(px)? 0(px)?$/);
+    },
+  );
+
+  it('derives aspect-ratio in app.css from the ratio custom properties', () => {
+    expect(css).toMatch(
+      /\.sb-player__screen\s*\{[^}]*aspect-ratio:\s*var\(--sb-ratio-w\)\s*\/\s*var\(--sb-ratio-h\)/,
+    );
+  });
+
+  it('scales the stage by screen width / frame width', () => {
+    const desc = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'clientWidth');
+    Object.defineProperty(HTMLElement.prototype, 'clientWidth', { configurable: true, get: () => 540 });
+    try {
+      const { container } = renderPlayer({ ratio: '9:16' });
+      expect(stageEl(container).style.transform).toBe(`scale(${540 / 1080})`);
+    } finally {
+      if (desc) Object.defineProperty(HTMLElement.prototype, 'clientWidth', desc);
+    }
+  });
+});
+
+describe('Player layout matches layoutScene (Req 8.6)', () => {
+  /** Line texts of each rendered block, read from the <span> per line. */
+  function renderedBlocks(container: HTMLElement) {
+    return Array.from(container.querySelectorAll<HTMLElement>('.sb-scene__block')).map((block) => ({
+      role: block.dataset.role,
+      lines: Array.from(block.querySelectorAll(':scope > :not([aria-hidden]) > span')).map((s) => s.textContent),
+    }));
+  }
+
+  it.each(ASPECT_RATIOS.flatMap((r) => scenes.map((s) => [r.id, s.index] as const)))(
+    'renders the fallbackMeasure layout lines at %s for scene %i',
+    (ratio, index) => {
+      const { container } = renderPlayer({ ratio, index });
+      const layout = layoutScene(scenes[index], ratio, fallbackMeasure);
+      expect(sceneView().dataset.scale).toBe(String(layout.scale));
+      expect(renderedBlocks(container)).toEqual(
+        layout.blocks.map((b) => ({ role: b.role, lines: b.lines.map((l) => l.text) })),
+      );
+    },
+  );
+
+  it('splits a long text into several lines that join back to the text', () => {
+    const text = 'Growth beats perfection when teams ship small changes every single day. '.repeat(4).trim();
+    const long: Scene = { index: 0, text, template: 'keyword-highlight', durationMs: 8000, data: { keywords: ['Growth'] } };
+    const { container } = renderPlayer({ storyboard: { ...storyboard, sceneCount: 1, scenes: [long] }, ratio: '9:16' });
+    const block = renderedBlocks(container).find((b) => b.role === 'keywords');
+    expect(block!.lines.length).toBeGreaterThan(1);
+    expect(block!.lines.join('')).toBe(text);
+    expect(container.querySelectorAll('.sb-keyword-highlight__text br').length).toBe(block!.lines.length - 1);
+    expect(sceneView().dataset.truncated).toBeUndefined();
+  });
+
+  it('marks a scene that does not fit as truncated with an ellipsis', () => {
+    const text = '增长'.repeat(1000); // 2000 code points; does not fit even at scale 0.4
+    const long: Scene = { index: 0, text, template: 'keyword-highlight', durationMs: 8000, data: { keywords: ['增长'] } };
+    const { container } = renderPlayer({ storyboard: { ...storyboard, sceneCount: 1, scenes: [long] }, ratio: '9:16' });
+    expect(sceneView().dataset.truncated).toBe('true');
+    expect(sceneView().dataset.scale).toBe('0.4');
+    const lines = renderedBlocks(container).flatMap((b) => b.lines);
+    expect(lines[lines.length - 1]!.trimEnd().endsWith('…')).toBe(true);
+  });
+
+  it('uses the measure prop for layout', () => {
+    const measure = vi.fn(fallbackMeasure);
+    renderPlayer({ measure });
+    expect(measure).toHaveBeenCalled();
+  });
+});
+
+describe('Player disabled prop (Req 15.3)', () => {
+  it('disables Play, Previous, and Next on a middle scene', () => {
+    const { props, rerender } = renderPlayer({ index: 1, disabled: true });
+    for (const name of ['Play', 'Previous', 'Next']) {
+      expect(button(name).disabled).toBe(true);
+    }
+    rerender(<Player {...props} playing />);
+    expect(button('Pause').disabled).toBe(true);
+  });
+
+  it('keeps the controls enabled by default', () => {
+    renderPlayer({ index: 1 });
+    expect(button('Play').disabled).toBe(false);
   });
 });

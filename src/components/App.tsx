@@ -1,10 +1,34 @@
-import { Component, useEffect, useMemo, useState, type ErrorInfo, type ReactNode } from 'react';
+import {
+  Component,
+  useEffect,
+  useMemo,
+  useReducer,
+  useState,
+  type ErrorInfo,
+  type ReactNode,
+} from 'react';
+import { DEFAULT_ASPECT_RATIO, type AspectRatioId } from '../core/aspectRatio';
 import { buildStoryboard } from '../core/buildStoryboard';
+import { buildEditedStoryboard } from '../core/editedStoryboard';
+import {
+  hasOverride,
+  occurrenceRanks,
+  overrideKey,
+  reconcileOverrides,
+  resetSceneOverride,
+  setEditedText,
+  setManualTemplate,
+} from '../core/overrides';
+import { INITIAL_RENDER_STATUS, renderStatusReducer } from '../core/renderStatus';
+import type { SceneOverrides, SceneTemplate } from '../core/types';
 import { SAMPLE_TRANSCRIPT } from '../data/sampleTranscript';
 import { usePlayback } from '../playback/usePlayback';
-import { ExportButton } from './ExportButton';
+import { createBrowserMeasure } from '../video/measure';
+import { browserVideoEnv, detectVideoSupport } from '../video/support';
+import { AspectRatioPicker } from './AspectRatioPicker';
+import { ExportPanel, type ExportFormat, type SubtitleFormat } from './ExportPanel';
 import { Player } from './Player';
-import { StoryboardList } from './StoryboardList';
+import { StoryboardList, type SceneEditorBindings } from './StoryboardList';
 import { TranscriptInput } from './TranscriptInput';
 import '../styles/app.css';
 
@@ -21,12 +45,77 @@ function useDebouncedValue<T>(value: T, delayMs: number): T {
   return debounced;
 }
 
+const EMPTY_OVERRIDES: SceneOverrides = {};
+
 function SceneBeat() {
   const [text, setText] = useState(SAMPLE_TRANSCRIPT);
   const debouncedText = useDebouncedValue(text, REGENERATE_DEBOUNCE_MS);
-  const storyboard = useMemo(() => buildStoryboard(debouncedText), [debouncedText]);
+  const auto = useMemo(() => buildStoryboard(debouncedText), [debouncedText]);
+  const ranks = useMemo(() => occurrenceRanks(auto.scenes.map((s) => s.text)), [auto]);
+
+  // Scene_Overrides, reconciled during render whenever the Automatic_Scenes change (Req 6.3, 6.4).
+  const [overridesState, setOverrides] = useState<SceneOverrides>(EMPTY_OVERRIDES);
+  const [overridesAuto, setOverridesAuto] = useState(auto);
+  let overrides = overridesState;
+  if (overridesAuto !== auto) {
+    overrides = reconcileOverrides(auto.scenes, overridesState);
+    setOverridesAuto(auto);
+    setOverrides(overrides);
+  }
+
+  const storyboard = useMemo(() => buildEditedStoryboard(auto, overrides), [auto, overrides]);
   const durations = useMemo(() => storyboard.scenes.map((s) => s.durationMs), [storyboard]);
-  const { state, play, pause, next, prev, select } = usePlayback(durations);
+  const resetKey = useMemo(
+    () => JSON.stringify(auto.scenes.map((s) => [s.text, s.durationMs])),
+    [auto],
+  );
+  const { state, play, pause, next, prev, select, retime } = usePlayback(durations, resetKey);
+
+  const [ratio, setRatio] = useState<AspectRatioId>(DEFAULT_ASPECT_RATIO);
+  const measure = useMemo(() => createBrowserMeasure(document), []);
+  const [videoSupport] = useState(() => detectVideoSupport(browserVideoEnv(window)));
+  const [exportFormat, setExportFormat] = useState<ExportFormat>(() =>
+    videoSupport.supported ? 'video' : 'subtitles',
+  );
+  const [subtitleFormat, setSubtitleFormat] = useState<SubtitleFormat>('srt');
+  const [renderStatus, dispatchRender] = useReducer(renderStatusReducer, INITIAL_RENDER_STATUS);
+  const locked = renderStatus.phase === 'rendering';
+
+  // Every edit pauses playback and keeps the position (Req 7.2, 7.3).
+  const stopForEdit = () => {
+    pause();
+    retime();
+  };
+
+  const editor: SceneEditorBindings = {
+    disabled: locked,
+    isEdited: (i) => {
+      const a = auto.scenes[i];
+      return a !== undefined && hasOverride(overrides, a, ranks[i]);
+    },
+    onTemplateChange: (i, template: SceneTemplate) => {
+      const a = auto.scenes[i];
+      if (a === undefined || locked) return;
+      setOverrides(setManualTemplate(overrides, a, ranks[i], template));
+      stopForEdit();
+    },
+    onSaveText: (i, raw) => {
+      const a = auto.scenes[i];
+      if (a === undefined || locked) return null;
+      const result = setEditedText(overrides, a, ranks[i], raw);
+      if (!result.ok) return result.error;
+      setOverrides(result.overrides);
+      stopForEdit();
+      return null;
+    },
+    onReset: (i) => {
+      const a = auto.scenes[i];
+      if (a === undefined || locked) return;
+      setOverrides(resetSceneOverride(overrides, overrideKey(a.text, ranks[i])));
+      stopForEdit();
+    },
+    onEditStart: () => stopForEdit(),
+  };
 
   const total = storyboard.scenes.length;
 
@@ -50,7 +139,11 @@ function SceneBeat() {
             value={text}
             onChange={setText}
             onLoadSample={() => setText(SAMPLE_TRANSCRIPT)}
-            onClear={() => setText('')}
+            onClear={() => {
+              setText('');
+              setOverrides(EMPTY_OVERRIDES);
+            }}
+            disabled={locked}
           />
         </section>
 
@@ -62,6 +155,7 @@ function SceneBeat() {
               title="Watch the preview"
               aside={total > 0 ? `${total} ${total === 1 ? 'scene' : 'scenes'}` : undefined}
             />
+            <AspectRatioPicker value={ratio} onChange={setRatio} disabled={locked} />
             <Player
               storyboard={storyboard}
               index={state.index}
@@ -70,12 +164,27 @@ function SceneBeat() {
               onPause={pause}
               onPrev={prev}
               onNext={next}
+              ratio={ratio}
+              measure={measure}
+              disabled={locked}
             />
           </section>
 
           <section className="sb-card sb-card--row" aria-labelledby="sb-step-3">
-            <StepTitle id="sb-step-3" step={3} title="Download the storyboard" />
-            <ExportButton storyboard={storyboard} />
+            <StepTitle id="sb-step-3" step={3} title="Download" />
+            <ExportPanel
+              storyboard={storyboard}
+              ratio={ratio}
+              videoSupport={videoSupport}
+              format={exportFormat}
+              onFormatChange={setExportFormat}
+              subtitleFormat={subtitleFormat}
+              onSubtitleFormatChange={setSubtitleFormat}
+              renderStatus={renderStatus}
+              dispatchRender={dispatchRender}
+              onRenderStart={pause}
+              measure={measure}
+            />
           </section>
         </div>
 
@@ -86,7 +195,7 @@ function SceneBeat() {
             </h2>
             <span className="sb-step__aside">Click a scene to jump to it</span>
           </div>
-          <StoryboardList storyboard={storyboard} currentIndex={state.index} onSelect={select} />
+          <StoryboardList storyboard={storyboard} currentIndex={state.index} onSelect={select} editor={editor} />
         </section>
       </main>
 

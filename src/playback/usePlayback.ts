@@ -13,6 +13,8 @@ export interface UsePlaybackResult {
   next: () => void;
   prev: () => void;
   select: (index: number) => void;
+  /** Pauses and replaces the durations with the current ones, keeping the index (Requirement 7.2, 7.3). */
+  retime: () => void;
   dispatch: (action: PlaybackAction) => void;
 }
 
@@ -29,18 +31,30 @@ function durationsKey(durations: readonly number[]): string {
  * Pausing dispatches the time elapsed so far, so resuming continues the
  * remaining portion (Requirements 5.3, 5.4). A change in `durations` (by value)
  * resets playback to the first scene, paused (Requirement 5.14).
+ *
+ * With `resetKey` given (the automatic scenes' identity), a changed `resetKey`
+ * resets playback, while a change of `durations` alone (an edit) dispatches
+ * `retime`, which pauses and keeps the current index (Requirements 6.5, 7.2, 7.3).
  */
-export function usePlayback(durations: readonly number[]): UsePlaybackResult {
+export function usePlayback(durations: readonly number[], resetKey?: string): UsePlaybackResult {
   const [state, dispatch] = useReducer(playbackReducer, durations, createPlaybackState);
 
-  // Reset during render when the durations change by value, so no frame is
+  // Adjust during render when the inputs change by value, so no frame is
   // rendered with a stale index for the new storyboard.
   const key = durationsKey(durations);
-  const [prevKey, setPrevKey] = useState(key);
-  if (key !== prevKey) {
-    setPrevKey(key);
-    dispatch({ type: 'reset', durations });
+  const [prev, setPrev] = useState({ key, resetKey });
+  if (key !== prev.key || resetKey !== prev.resetKey) {
+    setPrev({ key, resetKey });
+    if (resetKey === undefined || resetKey !== prev.resetKey) {
+      dispatch({ type: 'reset', durations });
+    } else {
+      dispatch({ type: 'retime', durations });
+    }
   }
+
+  // Latest durations for the retime() helper.
+  const durationsRef = useRef(durations);
+  durationsRef.current = durations;
 
   // Start time of the currently scheduled scene timer; null when no timer runs.
   const startRef = useRef<number | null>(null);
@@ -74,8 +88,13 @@ export function usePlayback(durations: readonly number[]): UsePlaybackResult {
   }, []);
 
   const next = useCallback(() => dispatch({ type: 'next' }), []);
-  const prev = useCallback(() => dispatch({ type: 'prev' }), []);
+  const prevScene = useCallback(() => dispatch({ type: 'prev' }), []);
   const select = useCallback((index: number) => dispatch({ type: 'select', index }), []);
 
-  return { state, play, pause, next, prev, select, dispatch };
+  const retime = useCallback(() => {
+    startRef.current = null;
+    dispatch({ type: 'retime', durations: durationsRef.current });
+  }, []);
+
+  return { state, play, pause, next, prev: prevScene, select, retime, dispatch };
 }

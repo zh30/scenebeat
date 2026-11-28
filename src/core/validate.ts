@@ -1,5 +1,5 @@
 import { TEMPLATES } from './types';
-import type { SceneTemplate, ValidationError } from './types';
+import type { SceneTemplate, TemplateSource, ValidationError } from './types';
 
 const MIN_DURATION_MS = 2000;
 const MAX_DURATION_MS = 8000;
@@ -28,6 +28,17 @@ function hasOwn(obj: PlainObject, key: string): boolean {
 
 function isTemplate(value: unknown): value is SceneTemplate {
   return typeof value === 'string' && (TEMPLATES as readonly string[]).includes(value);
+}
+
+const SUPPORTED_VERSIONS = ['1.0', '1.1'] as const;
+
+function isTemplateSource(value: unknown): value is TemplateSource {
+  return value === 'auto' || value === 'manual';
+}
+
+/** A string in quotes, otherwise its type description. */
+function formatValue(value: unknown): string {
+  return typeof value === 'string' ? `"${value}"` : describe(value);
 }
 
 function isIso8601(value: string): boolean {
@@ -61,7 +72,12 @@ export function validateStoryboard(value: unknown): ValidationError[] {
     add('$.version', 'Missing required field "version"');
   } else if (typeof value.version !== 'string') {
     add('$.version', `Expected "version" to be a string, got ${describe(value.version)}`);
+  } else if (!(SUPPORTED_VERSIONS as readonly string[]).includes(value.version)) {
+    add('$.version', `Unsupported version "${value.version}"; expected "1.0" or "1.1"`);
   }
+  // Scene-level templateSource rules apply only to a known version string.
+  const version =
+    value.version === '1.0' || value.version === '1.1' ? value.version : undefined;
 
   // createdAt
   if (!hasOwn(value, 'createdAt')) {
@@ -143,6 +159,21 @@ export function validateStoryboard(value: unknown): ValidationError[] {
       );
     } else {
       template = scene.template;
+    }
+
+    // templateSource (version-dependent)
+    const sourcePath = `${base}.templateSource`;
+    if (version === '1.1') {
+      if (!hasOwn(scene, 'templateSource')) {
+        add(sourcePath, 'Missing required field "templateSource"');
+      } else if (!isTemplateSource(scene.templateSource)) {
+        add(
+          sourcePath,
+          `Scene ${i} has invalid templateSource ${formatValue(scene.templateSource)}; expected "auto" or "manual"`,
+        );
+      }
+    } else if (version === '1.0' && hasOwn(scene, 'templateSource')) {
+      add(sourcePath, 'Field "templateSource" requires version "1.1"');
     }
 
     // durationMs

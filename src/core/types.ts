@@ -40,16 +40,35 @@ export interface SceneDataByTemplate {
   timeline: TimelineData;
 }
 
+/** Whether a scene's template was chosen automatically or by the user. */
+export type TemplateSource = 'auto' | 'manual';
+
 export interface Scene {
   /** Zero-based position in the storyboard. */
   index: number;
   /** Non-empty, trimmed sentence text. */
   text: string;
   template: SceneTemplate;
+  /** Present on version "1.1" scenes; absent on version "1.0" scenes. */
+  templateSource?: TemplateSource;
   /** Display duration in milliseconds, within [2000, 8000]. */
   durationMs: number;
   data: SceneData;
 }
+
+/** A user edit attached to an Automatic_Scene by its Source_Text and Occurrence_Rank. */
+export interface SceneOverride {
+  /** Source_Text of the Automatic_Scene the override was created on. */
+  sourceText: string;
+  /** Occurrence_Rank of that Automatic_Scene. */
+  rank: number;
+  /** Normalized, non-empty, and different from sourceText when present. */
+  editedText?: string;
+  manualTemplate?: SceneTemplate;
+}
+
+/** Key: overrideKey(sourceText, rank). Values never have both optional fields missing. */
+export type SceneOverrides = Readonly<Record<string, SceneOverride>>;
 
 export interface Storyboard {
   /** Storyboard JSON format version, e.g. "1.0". */

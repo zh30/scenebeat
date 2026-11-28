@@ -157,3 +157,117 @@ describe('usePlayback', () => {
     expect(vi.getTimerCount()).toBe(0);
   });
 });
+
+type KeyedProps = { durations: readonly number[]; resetKey: string };
+
+function setupKeyed(durations: readonly number[], resetKey: string) {
+  return renderHook(({ durations, resetKey }: KeyedProps) => usePlayback(durations, resetKey), {
+    initialProps: { durations, resetKey },
+  });
+}
+
+describe('usePlayback with resetKey and retime', () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  it('resets to the first scene when resetKey changes', () => {
+    const { result, rerender } = setupKeyed([2000, 3000, 4000], 'a');
+    act(() => result.current.select(2));
+    act(() => result.current.play());
+
+    rerender({ durations: [2000, 3000, 4000], resetKey: 'b' });
+    expect(result.current.state).toMatchObject({ index: 0, playing: false, remainingMs: 2000 });
+  });
+
+  it('retimes, keeping the index and pausing, when only durations change (Req 7.2, 7.3)', () => {
+    const { result, rerender } = setupKeyed([2000, 3000, 4000], 'a');
+    act(() => result.current.play());
+    act(() => {
+      vi.advanceTimersByTime(2000);
+    });
+    expect(result.current.state.index).toBe(1);
+
+    rerender({ durations: [2000, 6000, 4000], resetKey: 'a' });
+    expect(result.current.state).toMatchObject({
+      index: 1,
+      playing: false,
+      remainingMs: 6000,
+      durations: [2000, 6000, 4000],
+    });
+
+    // The old timer must not advance the paused scene.
+    act(() => {
+      vi.advanceTimersByTime(10000);
+    });
+    expect(result.current.state.index).toBe(1);
+    expect(result.current.state.playing).toBe(false);
+  });
+
+  it('clamps the index on retime when the list gets shorter', () => {
+    const { result, rerender } = setupKeyed([2000, 3000, 4000], 'a');
+    act(() => result.current.select(2));
+    rerender({ durations: [2000, 3000], resetKey: 'a' });
+    expect(result.current.state).toMatchObject({ index: 1, playing: false, total: 2 });
+  });
+
+  it('does nothing when durations and resetKey are equal by value', () => {
+    const { result, rerender } = setupKeyed([2000, 3000], 'a');
+    act(() => result.current.play());
+    act(() => {
+      vi.advanceTimersByTime(500);
+    });
+    rerender({ durations: [2000, 3000], resetKey: 'a' });
+    expect(result.current.state.playing).toBe(true);
+    act(() => {
+      vi.advanceTimersByTime(1500);
+    });
+    expect(result.current.state.index).toBe(1);
+  });
+
+  it('retime() pauses and keeps the position with unchanged durations', () => {
+    const { result } = setupKeyed([2000, 3000, 4000], 'a');
+    act(() => result.current.play());
+    act(() => {
+      vi.advanceTimersByTime(2500);
+    });
+    expect(result.current.state.index).toBe(1);
+
+    act(() => result.current.retime());
+    expect(result.current.state).toMatchObject({ index: 1, playing: false, remainingMs: 3000 });
+    expect(vi.getTimerCount()).toBe(0);
+
+    act(() => {
+      vi.advanceTimersByTime(10000);
+    });
+    expect(result.current.state.index).toBe(1);
+  });
+
+  it('retime() uses the latest durations', () => {
+    const { result, rerender } = setupKeyed([2000, 3000], 'a');
+    act(() => result.current.select(1));
+    rerender({ durations: [2000, 7000], resetKey: 'a' });
+    act(() => result.current.play());
+    act(() => result.current.retime());
+    expect(result.current.state).toMatchObject({ index: 1, playing: false, remainingMs: 7000 });
+  });
+
+  it('play after retime continues from the kept scene', () => {
+    const { result } = setupKeyed([2000, 3000], 'a');
+    act(() => result.current.select(1));
+    act(() => result.current.retime());
+    act(() => result.current.play());
+    act(() => {
+      vi.advanceTimersByTime(2999);
+    });
+    expect(result.current.state).toMatchObject({ index: 1, playing: true });
+    act(() => {
+      vi.advanceTimersByTime(1);
+    });
+    expect(result.current.state).toMatchObject({ index: 1, playing: false, remainingMs: 0 });
+  });
+});

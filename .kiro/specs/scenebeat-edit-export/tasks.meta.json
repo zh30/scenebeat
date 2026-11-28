@@ -1,0 +1,1708 @@
+{
+  "pbtResults": {
+    "3.4 Write property test P27 in `tests/properties/p27-derive-data-agrees.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795796759797
+    },
+    "3.3 Write property test P26 in `tests/properties/p26-derive-data-total.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795796784773
+    },
+    "3.2 Write property test P25 in `tests/properties/p25-derive-data-model.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795796792997
+    },
+    "4.4 Write property test P28 in `tests/properties/p28-overrides-identity.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795796938528
+    },
+    "4.5 Write property test P29 in `tests/properties/p29-overrides-merge-model.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795796949170
+    },
+    "4.6 Write property test P30 in `tests/properties/p30-overrides-reconcile.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795797366539
+    },
+    "4.7 Write property test P31 in `tests/properties/p31-overrides-metamorphic.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795796979446
+    },
+    "4.8 Write property test P32 in `tests/properties/p32-edit-operations.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795796980567
+    },
+    "4.10 Write property test P34 in `tests/properties/p34-edited-storyboard-valid.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795797130318
+    },
+    "4.11 Write property test P35 in `tests/properties/p35-roundtrip-versions.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795797133834
+    },
+    "4.9 Write property test P33 in `tests/properties/p33-reset-scene.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795797139032
+    },
+    "4.12 Write property test P36 in `tests/properties/p36-validator-version.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795797147077
+    },
+    "6.2 Write property test P38 in `tests/properties/p38-aspect-ratio.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795797792644
+    },
+    "8.3 Write property test P41 in `tests/properties/p41-timestamp-roundtrip.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795797797872
+    },
+    "8.2 Write property test P40 in `tests/properties/p40-subtitle-cues.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795797800013
+    },
+    "6.9 Write property test P47 in `tests/properties/p47-enter-transition.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795797815924
+    },
+    "8.5 Write property test P43 in `tests/properties/p43-subtitle-roundtrip.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795798108864
+    },
+    "8.4 Write property test P42 in `tests/properties/p42-timestamp-order.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795798116576
+    },
+    "6.6 Write property test P46 in `tests/properties/p46-frame-plan-coverage.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795798495767
+    },
+    "6.4 Write property test P39 in `tests/properties/p39-video-length.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795798496701
+    },
+    "6.5 Write property test P45 in `tests/properties/p45-frame-plan-model.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795798524883
+    },
+    "6.7 Write property test P51 in `tests/properties/p51-render-progress.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795799046622
+    },
+    "8.8 Write property test P44 in `tests/properties/p44-export-filenames.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795798739953
+    },
+    "9.4 Write property test P49 in `tests/properties/p49-layout-scale.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795798782117
+    },
+    "9.3 Write property test P48 in `tests/properties/p48-layout-fits.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795798801261
+    },
+    "12.6 Write property test P50 in `tests/properties/p50-mime-selection.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795800288559
+    },
+    "11.3 Write property test P37 in `tests/properties/p37-playback-retime.property.test.ts`": {
+      "status": "passed",
+      "lastRunTimestamp": 1795800298499
+    }
+  },
+  "executionHistory": {
+    "1.1 Add the override and template-source types to `src/core/types.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599236
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793914484
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794282056
+      }
+    ],
+    "1.2 Add the jsdom test setup and shared property arbitraries": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599243
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793915525
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794283254
+      }
+    ],
+    "2.1 Write `templateSource` for version 1.1 in `src/core/serialize.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599250
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794431848
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794974501
+      }
+    ],
+    "2.2 Add version and `templateSource` rules to `src/core/validate.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599253
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794433623
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794976159
+      }
+    ],
+    "3.1 Create `src/core/deriveData.ts` with `deriveData` and `leadingLabel`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599255
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793916580
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794284181
+      }
+    ],
+    "4.1 Create `src/core/overrides.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599256
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794433705
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794976476
+      }
+    ],
+    "4.2 Create `src/core/editedStoryboard.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599258
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795795136511
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795796190092
+      }
+    ],
+    "4.3 Add an override-set arbitrary to `tests/properties/arbitraries.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599260
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795795136568
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795796190121
+      }
+    ],
+    "5. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599262
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797211066
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797437445
+      }
+    ],
+    "6.1 Create `src/core/aspectRatio.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599264
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797488668
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797647604
+      }
+    ],
+    "6.3 Create `src/core/framePlan.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599266
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797699567
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797906038
+      }
+    ],
+    "6.8 Create `src/core/transition.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599267
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797489194
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797647986
+      }
+    ],
+    "7.1 Create `src/core/mimeType.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599269
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797490328
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797649195
+      }
+    ],
+    "7.2 Create `src/core/renderStatus.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599271
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797977959
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798309436
+      }
+    ],
+    "8.1 Create `src/core/subtitles.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599272
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797491133
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797651230
+      }
+    ],
+    "8.7 Add `formatTimestampTag`, `formatSubtitleFilename`, and `formatVideoFilename` to `src/core/exportFilename.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599274
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797979126
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798308969
+      }
+    ],
+    "9.1 Create `src/core/sceneTheme.ts` and `src/core/highlight.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599276
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797492309
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797650355
+      }
+    ],
+    "9.2 Create `src/core/sceneLayout.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599278
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797979428
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798310633
+      }
+    ],
+    "10. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599280
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798896816
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795799187146
+      }
+    ],
+    "11.1 Add the `retime` action to `src/playback/playbackReducer.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599281
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795799276315
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795799653821
+      }
+    ],
+    "11.2 Add the optional `resetKey` parameter and a `retime()` helper to `src/playback/usePlayback.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599283
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795799779888
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800166694
+      }
+    ],
+    "12.1 Create `src/video/canvasTypes.ts` and `src/video/measure.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599285
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795799277508
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795799653938
+      }
+    ],
+    "12.2 Create `src/video/paintFrame.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599287
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795799778136
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800167488
+      }
+    ],
+    "12.3 Create `src/video/recorder.ts` and `src/video/frameClock.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599289
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795799278729
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795799655540
+      }
+    ],
+    "12.4 Create `src/video/support.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599291
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795799280051
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795799656417
+      }
+    ],
+    "12.5 Create `src/video/renderJob.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599292
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800367381
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800561089
+      }
+    ],
+    "13. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599294
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800724694
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800805785
+      }
+    ],
+    "14.1 Move the download helper into `src/components/download.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599296
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800814915
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801021712
+      }
+    ],
+    "14.2 Add a `disabled` prop to `src/components/TranscriptInput.tsx`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599298
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800816136
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801022916
+      }
+    ],
+    "14.3 Create `src/components/SceneEditor.tsx`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599299
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800817315
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801023723
+      }
+    ],
+    "14.4 Add the optional `editor: SceneEditorBindings` prop to `src/components/StoryboardList.tsx`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599301
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801372681
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801526649
+      }
+    ],
+    "14.5 Create `src/components/AspectRatioPicker.tsx`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599303
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800818120
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801024931
+      }
+    ],
+    "14.6 Render the ratio-shaped stage in `src/components/Player.tsx` and `src/components/SceneView.tsx`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599304
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800819170
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801026132
+      }
+    ],
+    "14.7 Create `src/components/ExportPanel.tsx`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599306
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801373884
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801527305
+      }
+    ],
+    "14.8 Add the styles for the new UI to `src/styles/app.css`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599308
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801075231
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801364912
+      }
+    ],
+    "15.1 Update `src/components/App.tsx`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599310
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801540178
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801740646
+      }
+    ],
+    "15.2 Remove `src/components/ExportButton.tsx` and `tests/ExportButton.test.tsx`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599311
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801748509
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802017340
+      }
+    ],
+    "16. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599313
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802025297
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802081362
+      }
+    ],
+    "17.1 Add the fixtures `tests/fixtures/valid-1.1.storyboard.json` and `tests/fixtures/invalid-1.1.storyboard.json`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599314
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802104284
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802223095
+      }
+    ],
+    "18.1 Update `.kiro/steering/product.md`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599316
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802105220
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802219933
+      }
+    ],
+    "18.2 Update `.kiro/steering/structure.md` and `.kiro/steering/tech.md`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599318
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802106280
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802221876
+      }
+    ],
+    "18.3 Update `README.md`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599320
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802107080
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802220698
+      }
+    ],
+    "19. Final checkpoint - Build and run all tests": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795793599321
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802296870
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802360859
+      }
+    ],
+    "1. Extend core types and test infrastructure": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794283258
+      }
+    ],
+    "3. Implement forced-template data derivation": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794284187
+      }
+    ],
+    "2.3 Add validator examples to `tests/validate.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794351433
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795796652558
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795796846805
+      }
+    ],
+    "3.2 Write property test P25 in `tests/properties/p25-derive-data-model.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794351780
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795796653156
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795796848347
+      }
+    ],
+    "3.3 Write property test P26 in `tests/properties/p26-derive-data-total.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794353037
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795796653682
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795796848633
+      }
+    ],
+    "3.4 Write property test P27 in `tests/properties/p27-derive-data-agrees.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794354145
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795796654775
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795796849828
+      }
+    ],
+    "3.5 Write unit tests in `tests/deriveData.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794355026
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795796655770
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795796850874
+      }
+    ],
+    "4.4 Write property test P28 in `tests/properties/p28-overrides-identity.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794355825
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795796852349
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797029480
+      }
+    ],
+    "4.5 Write property test P29 in `tests/properties/p29-overrides-merge-model.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794357049
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795796853014
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797030773
+      }
+    ],
+    "4.6 Write property test P30 in `tests/properties/p30-overrides-reconcile.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794358242
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795796854065
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797032152
+      }
+    ],
+    "4.7 Write property test P31 in `tests/properties/p31-overrides-metamorphic.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794360125
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795796855289
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797033126
+      }
+    ],
+    "4.8 Write property test P32 in `tests/properties/p32-edit-operations.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794360209
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795796856325
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797033932
+      }
+    ],
+    "4.9 Write property test P33 in `tests/properties/p33-reset-scene.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794361514
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797035091
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797206067
+      }
+    ],
+    "4.10 Write property test P34 in `tests/properties/p34-edited-storyboard-valid.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794362182
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797036289
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797207073
+      }
+    ],
+    "4.11 Write property test P35 in `tests/properties/p35-roundtrip-versions.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794364248
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797037494
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797208599
+      }
+    ],
+    "4.12 Write property test P36 in `tests/properties/p36-validator-version.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794366772
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797038672
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797208899
+      }
+    ],
+    "4.13 Write unit tests in `tests/overrides.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794366784
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797039696
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797209971
+      }
+    ],
+    "6.2 Write property test P38 in `tests/properties/p38-aspect-ratio.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794366852
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797699625
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797907185
+      }
+    ],
+    "6.4 Write property test P39 in `tests/properties/p39-video-length.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794368146
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798388697
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798635226
+      }
+    ],
+    "6.5 Write property test P45 in `tests/properties/p45-frame-plan-model.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794369125
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798388832
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798639066
+      }
+    ],
+    "6.6 Write property test P46 in `tests/properties/p46-frame-plan-coverage.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794369827
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798390079
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798636528
+      }
+    ],
+    "6.7 Write property test P51 in `tests/properties/p51-render-progress.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794372015
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798391302
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798633968
+      }
+    ],
+    "6.9 Write property test P47 in `tests/properties/p47-enter-transition.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794372026
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797699947
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797908148
+      }
+    ],
+    "7.3 Write unit tests in `tests/renderStatus.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794372958
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798392620
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798637752
+      }
+    ],
+    "8.2 Write property test P40 in `tests/properties/p40-subtitle-cues.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794374241
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797700812
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797909509
+      }
+    ],
+    "8.3 Write property test P41 in `tests/properties/p41-timestamp-roundtrip.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794375044
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797701773
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797910791
+      }
+    ],
+    "8.4 Write property test P42 in `tests/properties/p42-timestamp-order.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794376240
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797980482
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798311779
+      }
+    ],
+    "8.5 Write property test P43 in `tests/properties/p43-subtitle-roundtrip.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794377422
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797981531
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798312572
+      }
+    ],
+    "8.6 Write unit tests in `tests/subtitles.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794378240
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798639667
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798894018
+      }
+    ],
+    "8.8 Write property test P44 in `tests/properties/p44-export-filenames.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794380537
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798640820
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798894820
+      }
+    ],
+    "9.3 Write property test P48 in `tests/properties/p48-layout-fits.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794380848
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798642015
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798891596
+      }
+    ],
+    "9.4 Write property test P49 in `tests/properties/p49-layout-scale.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794381447
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798643213
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798892777
+      }
+    ],
+    "9.5 Write unit tests in `tests/sceneLayout.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794382614
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798644310
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798895934
+      }
+    ],
+    "11.3 Write property test P37 in `tests/properties/p37-playback-retime.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794383399
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800233095
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800357418
+      }
+    ],
+    "11.4 Write unit tests for retiming in `tests/playbackReducer.test.ts` and `tests/usePlayback.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794384633
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800233101
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800356166
+      }
+    ],
+    "12.6 Write property test P50 in `tests/properties/p50-mime-selection.property.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794387013
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795799280499
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800355108
+      }
+    ],
+    "12.7 Write unit tests in `tests/paintFrame.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794387027
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800233620
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800358184
+      }
+    ],
+    "12.8 Write unit tests in `tests/measure.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794388176
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795799780327
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800165633
+      }
+    ],
+    "12.9 Write unit tests in `tests/renderJob.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794389458
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800561869
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800723910
+      }
+    ],
+    "14.9 Write component tests in `tests/SceneEditor.test.tsx`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794389817
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801375065
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801528477
+      }
+    ],
+    "14.10 Add editor cases to `tests/StoryboardList.test.tsx`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794390617
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801540574
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801739851
+      }
+    ],
+    "14.11 Write component tests in `tests/AspectRatioPicker.test.tsx`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794391826
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801375860
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801529267
+      }
+    ],
+    "14.12 Add ratio and layout cases to `tests/Player.test.tsx`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794393102
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801376778
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801530289
+      }
+    ],
+    "14.13 Write component tests in `tests/ExportPanel.test.tsx`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794393877
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801541452
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801738664
+      }
+    ],
+    "15.3 Add integration cases to `tests/App.test.tsx`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794395555
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801749448
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802016186
+      }
+    ],
+    "17.2 Add CLI cases to `tests/validateCli.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794395942
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802224302
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802296291
+      }
+    ],
+    "18.4 Add repository smoke cases to `tests/repo.test.ts`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794396822
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802225047
+      },
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802295109
+      }
+    ],
+    "2. Support storyboard JSON version 1.1 in the serializer and validator": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795794976163
+      }
+    ],
+    "4. Implement overrides and the edited storyboard": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795796190123
+      }
+    ],
+    "6. Implement aspect ratios, the frame plan, and the enter transition": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795797906041
+      }
+    ],
+    "8. Implement subtitles and export filenames": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798308972
+      }
+    ],
+    "7. Implement MIME selection and render status": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798309438
+      }
+    ],
+    "9. Implement the shared scene theme and text layout": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795798310636
+      }
+    ],
+    "11. Add playback retiming": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800166698
+      }
+    ],
+    "12. Implement the browser video modules with injected APIs": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795800561091
+      }
+    ],
+    "14. Build the UI components": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795801527308
+      }
+    ],
+    "15. Wire everything together in `App`": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802017344
+      }
+    ],
+    "18. Update the steering files and README": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802221879
+      }
+    ],
+    "17. Accept version 1.1 in the CLI and hook": [
+      {
+        "executionId": "e9e6df0b-3a59-4c2e-9e4f-2a403e141ce9",
+        "chatSessionId": "sess_6a1f7c37-bd1c-441a-bafe-2292ce709c37",
+        "timestamp": 1795802223097
+      }
+    ]
+  }
+}

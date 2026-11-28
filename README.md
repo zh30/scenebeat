@@ -14,9 +14,61 @@ SceneBeat turns a podcast or video transcript into an animated motion storyboard
 - **Reading-pace durations**: `1000 + 250 × English words + 200 × Chinese characters` ms, clamped to 2000 to 8000 ms.
 - **Player** with Play, Pause, Previous, and Next, a "current / total" position label, animated transitions, and an opacity-only fade when the OS requests reduced motion.
 - **Storyboard list** showing every scene with its template, the current scene, and per-template counts. Click a row to jump to that scene.
-- **Export** of a validated storyboard JSON file named `scenebeat-storyboard-YYYYMMDD-HHmmss.json`. The file is generated locally; the app makes no network requests.
+- **Scene editing** in the storyboard list (details below): change a scene's template, fix its text, or reset it to the automatic result.
+- **Video shape**: pick 16:9, 9:16, 1:1, or 4:5. The preview takes the same shape and line breaks as the exported video.
+- **Export** in three formats, all generated locally in the browser with no network requests:
+  - **Video**: a silent video of your scenes (MP4 or WebM).
+  - **Subtitles**: an SRT or WebVTT file with one caption per scene.
+  - **Storyboard (JSON)**: a validated file named `scenebeat-storyboard-YYYYMMDD-HHmmss.json`.
 
-Out of scope for the MVP: accounts, a backend, audio processing, and video rendering.
+### Editing scenes
+
+Each row of the storyboard list has its own editing controls:
+
+- **Template**: choose any of the four templates. A chosen template always wins over the automatic one, and SceneBeat picks sensible highlighted data for it (for example, the first word of the sentence when a `big-number` scene has no number).
+- **Edit text**: correct typos or transcription errors, then press Save (or Enter). Line breaks become spaces, and the scene stays one scene even if the new text contains several sentences. The scene's duration is recomputed from the new text. Empty text is rejected with "Scene text can't be empty."
+- **Reset to automatic**: undo all edits to that scene. Other scenes keep their edits.
+
+A chip shows "Auto" for untouched scenes and "Edited" for changed ones. Edits never change the transcript box. They show up at once in the Player and in every export.
+
+Edits survive changes elsewhere in the transcript. Each edit is tied to its original sentence text (and, for repeated sentences, to which copy it is), so it stays with that sentence when you change other sentences. If you change or delete the sentence itself, or press "Clear" or "Load sample", the edit is dropped.
+
+### Video shapes
+
+| Shape | Size (pixels) | Good for |
+|---|---|---|
+| 16:9 | 1920 × 1080 | Landscape · YouTube |
+| 9:16 | 1080 × 1920 | Portrait · TikTok, Reels, Shorts, 抖音 |
+| 1:1 | 1080 × 1080 | Square |
+| 4:5 | 1080 × 1350 | Portrait post · Instagram |
+
+16:9 is selected when the app opens. Changing the shape keeps your edits and the current playback position. Text that doesn't fit the frame is shrunk (down to 40% of its normal size) and, if it still doesn't fit, cut off with `…`.
+
+### Video export
+
+SceneBeat draws each scene onto a canvas and records it with the browser's built-in MediaRecorder. Nothing is uploaded.
+
+- **File type**: MP4 (H.264) when the browser can record it, for example recent Chrome, Edge, and Safari. Otherwise WebM, for example Firefox and older Chrome. The file is named `scenebeat-video-<shape>-YYYYMMDD-HHmmss.mp4` (or `.webm`), where `<shape>` is `16x9`, `9x16`, `1x1`, or `4x5`.
+- **No sound**: the video has no audio track. Add music or voice in your editor.
+- **Rendering takes real time**: a 60-second storyboard takes about 60 seconds to render. A progress bar shows the percentage and the current scene, and you can cancel at any time.
+- **Keep the tab visible while rendering.** Browsers pause drawing in hidden tabs, so SceneBeat stops the export if you switch tabs or minimize the window. Start it again with the tab in front.
+- **WebM limitation**: WebM files recorded by Chrome have no duration in the file header, so some players show an unknown length or can't seek until the file has fully loaded. Most editors open them fine. Instagram and TikTok expect MP4, so convert WebM files to MP4 before posting (for example with HandBrake or your video editor's export).
+- **Supported browsers**: recent versions of Chrome, Edge, Firefox, and Safari. If a browser can't record video, the Video option is disabled with an explanation, and subtitle and storyboard downloads still work.
+
+### Subtitle export
+
+Choose **Subtitles**, then **SRT** (works almost everywhere, the default) or **WebVTT** (web players and YouTube). You get one caption per scene, timed from the scene durations, so captions line up with the exported video. Files are UTF-8 and named `scenebeat-subtitles-YYYYMMDD-HHmmss.srt` (or `.vtt`).
+
+Importing the file (menu names may differ slightly between versions):
+
+- **CapCut / 剪映**: in the desktop app, open **Text → Local captions** (文本 → 本地字幕), click **Import**, and choose the `.srt` file. The captions land on a text track at the start of the timeline.
+- **Premiere Pro**: **File → Import**, choose the `.srt` file, then drag it from the Project panel onto the timeline. It becomes a captions track you can restyle.
+- **DaVinci Resolve**: **File → Import → Subtitle**, choose the `.srt` file, then drag it from the Media Pool onto the timeline.
+- **YouTube**: in YouTube Studio, open the video, go to **Subtitles → Add → Upload file**, choose **With timing**, and pick the `.srt` or `.vtt` file.
+
+Put the subtitles at the start of the timeline, together with the SceneBeat video, so the times match.
+
+Out of scope: accounts, a backend, network requests, audio processing, and native project files for video editors (CapCut drafts, Premiere `.prproj`, DaVinci `.drp`, FCPXML). Use the SRT file to bring captions into those editors. In-browser silent video export was out of scope for the MVP and is now in scope (see `.kiro/specs/scenebeat-edit-export/`).
 
 ## Prerequisites
 
@@ -35,11 +87,13 @@ pnpm test      # run all unit and property-based tests once (Vitest)
 
 ## Storyboard JSON format
 
+SceneBeat exports version `"1.1"`. It adds one field per scene, `templateSource`, placed right after `template`: `"auto"` when SceneBeat chose the template, `"manual"` when you picked it. Version `"1.0"` files (the MVP format, with no `templateSource`) are still accepted by the validator and the hook. Everything else is the same in both versions.
+
 An exported storyboard looks like this:
 
 ```json
 {
-  "version": "1.0",
+  "version": "1.1",
   "createdAt": "2026-10-31T12:00:00.000Z",
   "sceneCount": 2,
   "scenes": [
@@ -47,6 +101,7 @@ An exported storyboard looks like this:
       "index": 0,
       "text": "Revenue grew 45% last quarter.",
       "template": "big-number",
+      "templateSource": "auto",
       "durationMs": 2250,
       "data": {
         "value": "45%"
@@ -56,6 +111,7 @@ An exported storyboard looks like this:
       "index": 1,
       "text": "She said \"ship it\".",
       "template": "quote",
+      "templateSource": "manual",
       "durationMs": 2000,
       "data": {
         "quote": "ship it"
@@ -69,7 +125,7 @@ Top-level fields:
 
 | Field | Type | Rule |
 |---|---|---|
-| `version` | string | Format version, currently `"1.0"` |
+| `version` | string | `"1.1"` (current) or `"1.0"` (MVP format) |
 | `createdAt` | string | ISO 8601 timestamp |
 | `sceneCount` | integer | Equals `scenes.length` |
 | `scenes` | array | Scenes in playback order |
@@ -81,6 +137,7 @@ Scene fields:
 | `index` | integer | Equals the scene's position in `scenes` (0, 1, 2, …) |
 | `text` | string | Non-empty, trimmed sentence text |
 | `template` | string | `big-number`, `keyword-highlight`, `quote`, or `timeline` |
+| `templateSource` | string | Version 1.1 only, and required there: `"auto"` or `"manual"`. Not allowed in version 1.0 |
 | `durationMs` | integer | Display time in ms, from 2000 to 8000 |
 | `data` | object | Template-specific highlighted data (below) |
 
@@ -88,12 +145,12 @@ Scene fields:
 
 | Template | `data` |
 |---|---|
-| `big-number` | `{ "value": string }`, the first numeric match |
+| `big-number` | `{ "value": string }`, the first numeric match (or the sentence's first word when you chose the template for a sentence without a number) |
 | `keyword-highlight` | `{ "keywords": string[] }`, 1 to 3 keywords |
-| `quote` | `{ "quote": string }`, the text inside the quotation marks |
-| `timeline` | `{ "label": string }`, the matched year, date, or sequence marker |
+| `quote` | `{ "quote": string }`, the text inside the quotation marks (or the whole sentence when there are none) |
+| `timeline` | `{ "label": string }`, the matched year, date, or sequence marker (or the sentence's first word when there is none) |
 
-The file uses two-space indentation and a fixed key order (`version`, `createdAt`, `sceneCount`, `scenes`; within a scene `index`, `text`, `template`, `durationMs`, `data`), so serializing, parsing, and serializing again gives identical text. The rules are enforced by `src/core/validate.ts`.
+The file uses two-space indentation and a fixed key order (`version`, `createdAt`, `sceneCount`, `scenes`; within a scene `index`, `text`, `template`, `templateSource` in version 1.1, `durationMs`, `data`), so serializing, parsing, and serializing again gives identical text. The rules are enforced by `src/core/validate.ts`.
 
 To validate a file from the command line:
 
@@ -107,7 +164,7 @@ The script prints each error as `path: message` and exits with code 1 on validat
 
 - **Steering files** in `.kiro/steering/` describe the product, the tech stack, and the directory structure, so Kiro follows the project's conventions.
 - **Storyboard validation hook** in `.kiro/hooks/` runs `scripts/validate-storyboard.ts` whenever a `*.storyboard.json` or `scenebeat-storyboard-*.json` file is saved in the workspace, and reports any validation errors.
-- The spec for the MVP (requirements, design, and tasks) is in `.kiro/specs/scenebeat-mvp/`.
+- The spec for the MVP (requirements, design, and tasks) is in `.kiro/specs/scenebeat-mvp/`. The spec for scene editing, subtitles, and video export is in `.kiro/specs/scenebeat-edit-export/`.
 
 ## License
 
